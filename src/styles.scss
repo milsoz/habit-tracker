@@ -1,1 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+//  Color Palette
+$accent-shade: #64805f;
+$accent-tint: #deffd8;
+
+$physical-yellow-green: #edffab;
+$physical-tea-green: #c8ffbe;
+$physical-aquamarine: #a9fbd7;
+$physical-blue: #00abe7;
+$physical-orange: #e57c04;
+
+$mental-yellow: #ffc145;
+$mental-pink: #f283b6;
+$mental-tea-green: #c8ffbe;
+$mental-teal: #218380;
+$mental-blue: #48acf0;
+$mental-light-blue: #a3d9ff;
+
+$professional-violet: #462255;
+$professional-navy: #000080;
+$professional-gold: #e0be36;
+$professional-emerald: #23ce6b;
+
+$text-accent: #789972;
+$text-accent-tint: #fafff9;
+$text-light: #eaeaea;
+$text-dark: #2b2b2b;
+$text-darker: #1a1a1a;
+$background-light: #f9fafb;
+
+// Font sizes
+$font-xs: 0.75rem; // 12px
+$font-sm: 0.875rem; // 14px
+$font-base: 1rem; // 16px
+$font-lg: 1.125rem; // 18px
+$font-xl: 1.25rem; // 20px
+$font-2xl: 1.5rem; // 24px
+$font-3xl: 1.875rem; // 30px
+$font-4xl: 2.25rem; // 36px
+$font-5xl: 3rem; // 48px
+$font-6xl: 3.75rem; // 60px
+$font-7xl: 4.5rem; // 72px
+$font-8xl: 6rem; // 96px
+$font-9xl: 8rem; // 128px
+
+//  Line heights
+$line-xs: 1rem;
+$line-sm: 1.25rem;
+$line-base: 1.5rem;
+$line-lg: 1.75rem;
+$line-xl: 1.75rem;
+$line-2xl: 2rem;
+$line-3xl: 2.25rem;
+$line-4xl: 2.5rem;
+$line-5xl: 1;
+$line-6xl: 1;
+$line-7xl: 1;
+$line-8xl: 1;
+$line-9xl: 1;
+
+//  Global reset
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: $font-base;
+  line-height: $line-base;
+  color: $text-dark;
+  background-color: $background-light;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+  outline: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

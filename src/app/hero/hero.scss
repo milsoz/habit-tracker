@@ -1,0 +1,67 @@
+@use '../../styles.scss' as g;
+
+h1 {
+  font-family: 'Cormorant Garamond';
+  font-size: clamp(g.$font-4xl, 15vw, g.$font-8xl);
+  line-height: g.$line-8xl;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-image: url('/background.webp');
+  background-size: cover;
+  background-position: center;
+  color: g.$text-light;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.colored {
+  color: g.$text-accent;
+}
+
+p {
+  margin-top: 3rem;
+  font-size: clamp(g.$font-xl, 10vw, g.$font-2xl);
+  max-width: clamp(20rem, 100%, 30rem);
+  padding: 0 1.4rem;
+}
+
+button {
+  margin-top: 4rem;
+  font-size: g.$font-lg;
+  font-weight: 700;
+  color: g.$text-accent-tint;
+  background-color: g.$accent-shade;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+button:hover,
+button:active {
+  background-color: g.$text-accent-tint;
+  color: g.$accent-shade;
+}
