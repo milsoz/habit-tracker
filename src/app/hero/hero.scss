@@ -7,34 +7,30 @@ h1 {
 }
 
 section {
-  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  background-image: url('/background.webp');
-  background-size: cover;
-  background-position: center;
-  color: g.$text-light;
+  color: g.$text-dark;
 }
 
-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-section > * {
-  position: relative;
-  z-index: 2;
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .colored {
@@ -43,7 +39,7 @@ section > * {
 
 p {
   margin-top: 3rem;
-  font-size: clamp(g.$font-xl, 10vw, g.$font-2xl);
+  font-size: clamp(g.$font-xl, 5vw, g.$font-2xl);
   max-width: clamp(20rem, 100%, 30rem);
   padding: 0 1.4rem;
 }
@@ -64,4 +60,19 @@ button:hover,
 button:active {
   background-color: g.$text-accent-tint;
   color: g.$accent-shade;
+}
+
+img {
+  width: 30rem;
+  height: auto;
+}
+
+@media (max-width: 1280px) {
+  .hero {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  img {
+    width: 40rem;
+  }
 }
