@@ -1,0 +1,40 @@
+@use '../../../styles.scss' as g;
+
+header {
+  width: 100%;
+  height: 5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: clamp(15rem, 100%, 70rem);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+img {
+  width: 4rem;
+  height: auto;
+}
+
+a {
+  font-size: g.$font-lg;
+  font-weight: 700;
+  color: g.$text-accent-tint;
+  background-color: g.$text-accent;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  outline: 1px solid g.$text-accent;
+  outline-offset: -1px;
+}
+
+a:hover,
+a:active {
+  background-color: transparent;
+
+  color: g.$accent-shade;
+}
