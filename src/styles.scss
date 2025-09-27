@@ -1,6 +1,7 @@
 //  Color Palette
 $accent-shade: #64805f;
 $accent-tint: #deffd8;
+$accent: #c8ffbe; // tea-green
 
 $physical-yellow-green: #edffab;
 $physical-tea-green: #c8ffbe;
@@ -121,5 +122,5 @@ table {
 }
 
 ::selection {
-  background: $physical-tea-green;
+  background: $accent;
 }
