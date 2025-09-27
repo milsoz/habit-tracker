@@ -1,0 +1,44 @@
+<section>
+  <div class="faq">
+    <div class="heading">
+      <h2>Frequently Asked Questions</h2>
+      <h1>Here are answers to some of the most common questions we get.</h1>
+    </div>
+    <div class="questions">
+      <div class="qa-container">
+        <div class="question">
+          <p>Do I have to install anything?</p>
+          <app-btn-down (open)="changeOpen(1)" [isOpen]="openIndex() === 1" />
+        </div>
+        <div class="answer {{ openIndex() !== 1 ? 'hidden' : '' }}">
+          <p>No, the app is install-free. Works entirely on the web.</p>
+        </div>
+      </div>
+
+      <div class="qa-container">
+        <div class="question">
+          <p>Will my info be saved?</p>
+          <app-btn-down (open)="changeOpen(2)" [isOpen]="openIndex() === 2" />
+        </div>
+
+        <div class="answer {{ openIndex() !== 2 ? 'hidden' : '' }}">
+          <p>
+            Unfortunately no. The app currently doesn't have a database, and is a showcase. But who
+            knows, it might change one day!
+          </p>
+        </div>
+      </div>
+
+      <div class="qa-container">
+        <div class="question">
+          <p>Is the app free?</p>
+          <app-btn-down (open)="changeOpen(3)" [isOpen]="openIndex() === 3" />
+        </div>
+
+        <div class="answer {{ openIndex() !== 3 ? 'hidden' : '' }}">
+          <p>Yes! The app is completely free to use forever.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
