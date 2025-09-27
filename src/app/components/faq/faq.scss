@@ -51,7 +51,7 @@ section {
 
 h2 {
   font-size: g.$font-base;
-  background-color: g.$accent;
+  background-color: g.$accent-2;
   display: inline;
   width: min-content;
   white-space: nowrap;
@@ -100,4 +100,39 @@ p {
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  padding: 0 2px;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: skew(-10deg);
+  z-index: -1;
+}
+
+.highlight-1::before {
+  background-color: g.$highlight-1;
+}
+
+.highlight-2::before {
+  background-color: g.$highlight-2;
+}
+
+.highlight-3::before {
+  background-color: g.$highlight-3;
+}
+
+.highlight-4::before {
+  background-color: g.$highlight-4;
+}
+
+.highlight-5::before {
+  background-color: g.$highlight-5;
 }
