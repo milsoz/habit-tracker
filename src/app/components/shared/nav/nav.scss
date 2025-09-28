@@ -1,4 +1,4 @@
-@use '../../../styles.scss' as g;
+@use '../../../../styles.scss' as g;
 
 header {
   width: 100%;
@@ -21,7 +21,7 @@ img {
 
 .link {
   font-size: g.$font-lg;
-  font-weight: 700;
+  font-weight: 400;
   color: g.$text-accent-tint;
   background-color: g.$text-accent;
   padding: 0.5rem 1rem;

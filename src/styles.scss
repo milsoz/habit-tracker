@@ -1,3 +1,25 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: light;
+}
 //  Color Palette
 $accent-shade: #64805f;
 $accent-tint: #deffd8;
@@ -27,8 +49,8 @@ $professional-violet: #462255;
 $professional-navy: #000080;
 $professional-gold: #e0be36;
 $professional-emerald: #23ce6b;
+$text-accent: #7da65d;
 
-$text-accent: #789972;
 $text-accent-tint: #fafff9;
 $text-light: #eaeaea;
 $text-semidark: #3f3f3f;
@@ -96,6 +118,7 @@ body {
   line-height: $line-base;
   color: $text-dark;
   background-color: $background-light;
+  font-weight: 400;
 }
 
 a {
@@ -131,4 +154,13 @@ table {
 
 ::selection {
   background: $accent;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

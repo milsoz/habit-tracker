@@ -1,4 +1,4 @@
-@use '../../../styles.scss' as g;
+@use '../../../../styles.scss' as g;
 
 section {
   padding-top: 8rem;
@@ -34,6 +34,7 @@ h2 {
   display: inline;
   width: min-content;
   padding: 0.2rem 0.5rem;
+  font-weight: 500;
   border-radius: 100px;
 }
 
@@ -64,7 +65,7 @@ h1 {
 }
 
 p {
-  font-weight: bolder;
+  font-weight: 500;
   font-size: g.$font-xl;
   line-height: g.$line-xl;
   color: g.$text-dark;
