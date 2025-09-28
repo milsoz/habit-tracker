@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { DatePickerModule } from 'primeng/datepicker';
 import { FormsModule } from '@angular/forms';
@@ -14,4 +14,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class Menu {
   dateValue!: Date;
+  selectedMenuIndex = signal(1);
+
+  changeIndex = (i: number) => {
+    this.selectedMenuIndex.set(i);
+  };
 }

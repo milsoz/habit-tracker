@@ -2,11 +2,25 @@
   <div class="menu">
     <div class="controls">
       <div class="buttons">
-        <button class="active tab-btn">Body</button>
-        <button class="tab-btn">Mind</button>
-        <button class="tab-btn">Goals</button>
+        <button
+          class="tab-btn {{ selectedMenuIndex() === 1 ? 'active' : '' }}"
+          (click)="changeIndex(1)"
+        >
+          <span class="{{ selectedMenuIndex() === 1 ? ' highlight highlight-1' : '' }}">Body</span>
+        </button>
+        <button
+          class="tab-btn {{ selectedMenuIndex() === 2 ? 'active' : '' }}"
+          (click)="changeIndex(2)"
+        >
+          <span class="{{ selectedMenuIndex() === 2 ? 'highlight highlight-2' : '' }}">Mind</span>
+        </button>
+        <button
+          class="tab-btn {{ selectedMenuIndex() === 3 ? 'active' : '' }}"
+          (click)="changeIndex(3)"
+        >
+          <span class="{{ selectedMenuIndex() === 3 ? ' highlight highlight-3' : '' }}">Goals</span>
+        </button>
       </div>
-
       <p-datepicker
         [(ngModel)]="dateValue"
         [showIcon]="true"
@@ -16,7 +30,13 @@
     </div>
 
     <div class="tab">
-      <p>tab</p>
+      @if(selectedMenuIndex() === 1) {
+      <p>tab 1</p>
+      } @if(selectedMenuIndex() === 2) {
+      <p>tab 2</p>
+      } @if(selectedMenuIndex() === 3) {
+      <p>tab 3</p>
+      }
     </div>
   </div>
 </section>
