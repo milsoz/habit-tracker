@@ -19,7 +19,7 @@ img {
   height: auto;
 }
 
-a {
+.link {
   font-size: g.$font-lg;
   font-weight: 700;
   color: g.$text-accent-tint;
@@ -32,8 +32,8 @@ a {
   outline-offset: -1px;
 }
 
-a:hover,
-a:active {
+.link:hover,
+.link:active {
   background-color: transparent;
 
   color: g.$accent-shade;
