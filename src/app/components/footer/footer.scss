@@ -1,0 +1,87 @@
+@use '../../../styles.scss' as g;
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 10rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+img {
+  width: 4rem;
+  height: auto;
+}
+
+h3 {
+  font-size: g.$font-lg;
+}
+
+a {
+  font-size: g.$font-base;
+}
+a:hover {
+  text-decoration: underline g.$text-accent;
+}
+
+.logo-link {
+  font-size: g.$font-lg;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none !important;
+}
+
+.footer-top {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.footer-bottom div {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-links {
+  display: flex;
+  gap: clamp(2rem, 10vw, 7rem);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-links div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 460px) {
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

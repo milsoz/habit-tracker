@@ -4,6 +4,7 @@ h1 {
   font-family: 'Cormorant Garamond';
   font-size: clamp(g.$font-4xl, 15vw, g.$font-8xl);
   line-height: g.$line-8xl;
+  font-style: italic;
 }
 
 section {
@@ -84,6 +85,7 @@ img {
   inset: 0;
   transform: skew(-10deg);
   z-index: -1;
+  border-radius: 4px;
 }
 
 .highlight-1::before {

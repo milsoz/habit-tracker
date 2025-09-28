@@ -1,0 +1,70 @@
+@use '../../../styles.scss' as g;
+
+section {
+  padding-top: clamp(2rem, 10vw, 7rem);
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: g.$text-dark;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond';
+  font-size: clamp(g.$font-5xl, 10vw, g.$font-7xl);
+  line-height: g.$line-5xl;
+  text-align: center;
+  font-style: italic;
+}
+
+p {
+  font-weight: bolder;
+  font-size: clamp(g.$font-base, 5vw, g.$font-xl);
+  line-height: g.$line-xl;
+  color: g.$text-dark;
+  text-align: center;
+}
+
+.colored {
+  color: g.$text-accent;
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+  padding: 0 2px;
+  z-index: 1;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: skew(-10deg);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.highlight-1::before {
+  background-color: g.$highlight-4;
+}
+
+.highlight-2::before {
+  background-color: g.$highlight-2;
+}
+
+.highlight-3::before {
+  background-color: g.$highlight-5;
+}
