@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="water">
+    <p>Water drank: {{ glassesFull }}/8 glasses</p>
+
+    <div class="card">
+      @for (glass of glasses; track $index; let i = $index) {
+      <button (click)="changeGlassesFull(i + 1)">
+        <app-water-svg [isFull]="glassesFull >= i + 1"></app-water-svg>
+      </button>
+      }
+    </div>
+  </div>
+</div>

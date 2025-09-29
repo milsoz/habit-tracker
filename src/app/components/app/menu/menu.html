@@ -31,11 +31,11 @@
 
     <div class="tab">
       @if(selectedMenuIndex() === 1) {
-      <p>tab 1</p>
-      } @if(selectedMenuIndex() === 2) {
-      <p>tab 2</p>
+      <app-body [glassesFull]="glassesFull()" [changeGlassesFull]="changeGlassesFull" /> }
+      @if(selectedMenuIndex() === 2) {
+      <app-mind />
       } @if(selectedMenuIndex() === 3) {
-      <p>tab 3</p>
+      <app-goals />
       }
     </div>
   </div>
