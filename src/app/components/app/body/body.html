@@ -33,7 +33,26 @@
     </div>
   </div>
   <div class="exercise">
-    <div class="card-exercise"></div>
+    <div class="card-exercise">
+      @if (!exerciseDescription) {
+      <label for="exerciseDescription">Todays Exercises:</label>
+
+      <textarea
+        *ngIf="!exerciseDescription"
+        #exerciseInput
+        [value]="exerciseInputValue"
+        (keydown.enter)="onEnter(exerciseInput.value)"
+        rows="5"
+        cols="30"
+        placeholder="Describe your exercise..."
+      ></textarea>
+
+      }@else {
+      <div class="sleep-text">
+        <p>{{ exerciseDescription }}</p>
+      </div>
+      }
+    </div>
   </div>
   <div class="sleep">
     <div class="card-sleep">

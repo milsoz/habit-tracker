@@ -21,6 +21,7 @@ export class Menu {
   glassesFull = signal(0);
   steps = signal(0);
   sleepTime = signal('');
+  exerciseDescription = signal('');
 
   changeGlassesFull = (amount: number) => {
     this.glassesFull.set(amount);
@@ -32,6 +33,10 @@ export class Menu {
 
   changeSleepTime = (time: string) => {
     this.sleepTime.set(time);
+  };
+
+  changeExerciseDescription = (exerciseDescription: string) => {
+    this.exerciseDescription.set(exerciseDescription);
   };
 
   changeIndex = (i: number) => {
