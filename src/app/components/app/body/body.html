@@ -11,15 +11,14 @@
     </div>
   </div>
   <div class="steps">
-    <div class="progress-bar" style="--progress: {{ (steps / 8000) * 100 }}%;">
+    <div class="progress-bar" [style.--progress-value]="(steps / 8000) * 100">
       <progress
         [value]="(steps / 8000) * 100"
         min="0"
         max="100"
         style="visibility: hidden; height: 0; width: 0"
-      >
-        {{ (steps / 8000) * 100 }}%
-      </progress>
+      ></progress>
+      <p>{{ ((steps / 8000) * 100).toFixed(0) }}%</p>
     </div>
 
     <div class="input-div">

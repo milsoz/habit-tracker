@@ -13,7 +13,5 @@ export class Body {
   @Input() changeSteps!: (amount: number) => void;
   @Input() steps: number = 0;
 
-  percentage = `${(this.steps / 8000) * 100}}%`;
-
   glasses = Array(8).fill(0);
 }
