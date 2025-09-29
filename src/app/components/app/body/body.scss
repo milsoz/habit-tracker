@@ -14,11 +14,10 @@
 
 .card-water {
   height: 5rem;
-  width: clamp(10rem, 100%, 32rem);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -38,11 +37,9 @@
   border-radius: 1rem;
   border: 2px solid g.$physical-lavender;
   background-color: rgba(g.$physical-lavender, 0.1);
-  width: 100%;
   padding: 1rem;
   height: 100%;
   display: flex;
-  gap: 2rem;
   align-items: center;
   justify-content: center;
 }
@@ -62,23 +59,15 @@ button {
   background-color: rgba(g.$physical-orange, 0.1);
   width: 100%;
   padding: 1rem;
+  gap: 2rem;
   height: 100%;
   display: flex;
-  gap: 2rem;
   align-items: center;
   justify-content: center;
 }
 
-.sleep {
-  width: 100%;
-  padding: 1rem;
-  height: 100%;
-}
-
 .card-sleep {
   height: 5rem;
-  width: clamp(10rem, 100%, 32rem);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,14 +109,14 @@ input {
 
 p,
 label {
-  font-size: clamp(g.$font-base, 5vw, g.$font-xl);
-  max-width: clamp(20rem, 100%, 30rem);
+  font-size: clamp(g.$font-lg, 5vw, g.$font-xl);
+  max-width: clamp(10rem, 100%, 30rem);
   padding: 0 1.4rem;
 }
 
 .sleep p {
   color: g.$physical-lavender-dark;
-  font-size: g.$font-6xl;
+  font-size: clamp(g.$font-4xl, 10vw, g.$font-6xl);
 }
 
 .sleep-text {
@@ -135,6 +124,7 @@ label {
   gap: 2rem;
   align-items: center;
   justify-content: center;
+  line-height: g.$line-6xl;
 }
 
 .exercise {
@@ -145,15 +135,12 @@ label {
   padding: 1rem;
   height: 100%;
   display: flex;
-  gap: 2rem;
   align-items: center;
   justify-content: center;
 }
 
 .card-exercise {
   height: 5rem;
-  width: clamp(10rem, 100%, 32rem);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,5 +164,31 @@ textarea {
   .container {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .water {
+    gap: 1rem;
+  }
+
+  .card-exercise {
+    flex-direction: column;
+    row-gap: 2rem;
+    height: 10rem;
+  }
+
+  .steps {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  .card-sleep {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  p,
+  label {
+    padding: 0rem 0rem;
   }
 }

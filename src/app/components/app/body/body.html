@@ -40,6 +40,7 @@
       <textarea
         *ngIf="!exerciseDescription"
         #exerciseInput
+        id="exerciseDescription"
         [value]="exerciseInputValue"
         (keydown.enter)="onEnter(exerciseInput.value)"
         rows="5"
@@ -57,7 +58,7 @@
   <div class="sleep">
     <div class="card-sleep">
       @if (!sleepTime) {
-      <label for="steps">Time slept:</label>
+      <label for="sleepTime">Time slept:</label>
 
       <input
         type="text"
