@@ -19,9 +19,14 @@ export class Menu {
   dateValue!: Date;
   selectedMenuIndex = signal(1);
   glassesFull = signal(0);
+  steps = signal(0);
 
-  changeGlassesFull = (i: number) => {
-    this.glassesFull.set(i);
+  changeGlassesFull = (amount: number) => {
+    this.glassesFull.set(amount);
+  };
+
+  changeSteps = (amount: number) => {
+    this.steps.set(amount);
   };
 
   changeIndex = (i: number) => {

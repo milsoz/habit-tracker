@@ -2,12 +2,41 @@
   <div class="water">
     <p>Water drank: {{ glassesFull }}/8 glasses</p>
 
-    <div class="card">
+    <div class="card-water">
       @for (glass of glasses; track $index; let i = $index) {
       <button (click)="changeGlassesFull(i + 1)">
         <app-water-svg [isFull]="glassesFull >= i + 1"></app-water-svg>
       </button>
       }
     </div>
+  </div>
+  <div class="steps">
+    <div class="progress-bar" style="--progress: {{ (steps / 8000) * 100 }}%;">
+      <progress
+        [value]="(steps / 8000) * 100"
+        min="0"
+        max="100"
+        style="visibility: hidden; height: 0; width: 0"
+      >
+        {{ (steps / 8000) * 100 }}%
+      </progress>
+    </div>
+
+    <div class="input-div">
+      <label for="steps">Amount of steps:</label>
+      <input
+        type="number"
+        name="steps"
+        id="steps"
+        [value]="steps"
+        (change)="changeSteps($event.target.valueAsNumber)"
+      />
+    </div>
+  </div>
+  <div class="exercise">
+    <div class="card"></div>
+  </div>
+  <div class="sleep">
+    <div class="card"></div>
   </div>
 </div>

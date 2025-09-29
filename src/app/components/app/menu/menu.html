@@ -31,8 +31,13 @@
 
     <div class="tab">
       @if(selectedMenuIndex() === 1) {
-      <app-body [glassesFull]="glassesFull()" [changeGlassesFull]="changeGlassesFull" /> }
-      @if(selectedMenuIndex() === 2) {
+      <app-body
+        [glassesFull]="glassesFull()"
+        [changeGlassesFull]="changeGlassesFull"
+        [steps]="steps()"
+        [changeSteps]="changeSteps"
+      />
+      } @if(selectedMenuIndex() === 2) {
       <app-mind />
       } @if(selectedMenuIndex() === 3) {
       <app-goals />

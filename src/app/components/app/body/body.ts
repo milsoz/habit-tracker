@@ -8,12 +8,12 @@ import { WaterSvg } from '../water-svg/water-svg';
   styleUrl: './body.scss',
 })
 export class Body {
-  @Input() changeGlassesFull!: (i: number) => void;
+  @Input() changeGlassesFull!: (amount: number) => void;
   @Input() glassesFull: number = 0;
-  @Output() fullChanged = new EventEmitter<void>();
-  glasses = Array(8).fill(0);
+  @Input() changeSteps!: (amount: number) => void;
+  @Input() steps: number = 0;
 
-  handleClick(i: number) {
-    this.fullChanged.emit();
-  }
+  percentage = `${(this.steps / 8000) * 100}}%`;
+
+  glasses = Array(8).fill(0);
 }
