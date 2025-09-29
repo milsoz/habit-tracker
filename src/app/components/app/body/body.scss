@@ -8,8 +8,8 @@
   grid-template-rows: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .card-water {
@@ -24,8 +24,24 @@
 
 .water {
   border: 2px solid g.$physical-blue;
+  background-color: rgba(g.$physical-blue, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 1rem;
   padding: 1rem;
+  height: 100%;
+}
+
+.sleep {
+  height: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  padding-left: 0rem;
+  padding-top: 0rem;
+  border: 2px solid g.$physical-lavender;
+  background-color: rgba(g.$physical-lavender, 0.1);
 }
 
 button {
@@ -38,16 +54,30 @@ button {
 }
 
 .steps {
+  border-radius: 1rem;
+  border: 2px solid g.$physical-orange;
+  background-color: rgba(g.$physical-orange, 0.1);
   width: 100%;
+  padding: 1rem;
+  height: 100%;
   display: flex;
   gap: 2rem;
   align-items: center;
   justify-content: center;
 }
 
+.card-sleep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 input {
   border: 1px solid black;
   max-height: 2rem;
+  padding: 0.5rem;
+  border-radius: 100px;
 }
 
 .input-div {
@@ -74,4 +104,23 @@ input {
     conic-gradient(#e57c04 calc(var(--progress-value) * 1%), #eec89e 0);
 
   transition: --progress-value 0.5s linear;
+}
+
+p,
+label {
+  font-size: clamp(g.$font-base, 5vw, g.$font-xl);
+  max-width: clamp(20rem, 100%, 30rem);
+  padding: 0 1.4rem;
+}
+
+.sleep p {
+  color: g.$physical-lavender-dark;
+  font-size: g.$font-6xl;
+}
+
+.sleep-text {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
 }

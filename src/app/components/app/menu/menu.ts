@@ -20,6 +20,7 @@ export class Menu {
   selectedMenuIndex = signal(1);
   glassesFull = signal(0);
   steps = signal(0);
+  sleepTime = signal('');
 
   changeGlassesFull = (amount: number) => {
     this.glassesFull.set(amount);
@@ -27,6 +28,10 @@ export class Menu {
 
   changeSteps = (amount: number) => {
     this.steps.set(amount);
+  };
+
+  changeSleepTime = (time: string) => {
+    this.sleepTime.set(time);
   };
 
   changeIndex = (i: number) => {

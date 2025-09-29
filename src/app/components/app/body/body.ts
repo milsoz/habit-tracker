@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, EventEmitter, INJECTOR, Input, Output, signal } from '@angular/core';
 import { WaterSvg } from '../water-svg/water-svg';
 
 @Component({
@@ -12,6 +12,8 @@ export class Body {
   @Input() glassesFull: number = 0;
   @Input() changeSteps!: (amount: number) => void;
   @Input() steps: number = 0;
+  @Input() changeSleepTime!: (time: string) => void;
+  @Input() sleepTime: string = '';
 
   glasses = Array(8).fill(0);
 }
