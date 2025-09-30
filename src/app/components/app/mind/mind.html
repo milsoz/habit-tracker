@@ -1,1 +1,67 @@
-<p>mind works!</p>
+<div class="container">
+  <div class="mood">
+    <p>Rate todays mood!</p>
+
+    <div class="card-mood">
+      @for (rating of ratings; track $index; let i = $index) {
+      <button class="{{ moodRating === i ? 'active' : '' }}" (click)="setMoodRating(i)">
+        {{ rating }}
+      </button>
+      }
+    </div>
+  </div>
+  <div class="rest">
+    @if (!restDescription) {
+    <label for="restDescription">What did you do to relax?</label>
+
+    <textarea
+      *ngIf="!restDescription"
+      #restDescription
+      id="restDescription"
+      [value]="restDescriptionInputValue"
+      (keydown.enter)="onEnterRest(restDescription.value)"
+      rows="6"
+      cols="30"
+      placeholder="I watched a movie..."
+    ></textarea>
+
+    }@else {
+    <div class="sleep-text">
+      <p>{{ restDescription }}</p>
+    </div>
+    }
+  </div>
+  <div class="day">
+    <div class="card-day">
+      @if (!dayDescription) {
+      <label for="dayDescription">Note something about your day</label>
+
+      <textarea
+        *ngIf="!dayDescription"
+        #dayDescription
+        id="dayDescription"
+        [value]="dayDescriptionInputValue"
+        (keydown.enter)="onEnterDay(dayDescription.value)"
+        rows="6"
+        cols="30"
+        placeholder="I received new tasks at work, went for a walk..."
+      ></textarea>
+
+      }@else {
+      <div class="sleep-text">
+        <p>{{ dayDescription }}</p>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="stress">
+    <p>Select todays stress level:</p>
+    <div class="card-stress">
+      @for (stress of stressLevels; track $index; let i = $index) {
+      <button (click)="setStressLevel(i + 1)">
+        <app-stress-svg [stressLevelIndex]="i" [isActive]="stressLevel >= i + 1"></app-stress-svg>
+      </button>
+      }
+    </div>
+  </div>
+</div>

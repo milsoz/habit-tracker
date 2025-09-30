@@ -4,19 +4,19 @@
       <div class="buttons">
         <button
           class="tab-btn {{ selectedMenuIndex() === 1 ? 'active' : '' }}"
-          (click)="changeIndex(1)"
+          (click)="setIndex(1)"
         >
           <span class="{{ selectedMenuIndex() === 1 ? ' highlight highlight-1' : '' }}">Body</span>
         </button>
         <button
           class="tab-btn {{ selectedMenuIndex() === 2 ? 'active' : '' }}"
-          (click)="changeIndex(2)"
+          (click)="setIndex(2)"
         >
           <span class="{{ selectedMenuIndex() === 2 ? 'highlight highlight-2' : '' }}">Mind</span>
         </button>
         <button
           class="tab-btn {{ selectedMenuIndex() === 3 ? 'active' : '' }}"
-          (click)="changeIndex(3)"
+          (click)="setIndex(3)"
         >
           <span class="{{ selectedMenuIndex() === 3 ? ' highlight highlight-3' : '' }}">Goals</span>
         </button>
@@ -33,18 +33,36 @@
       @if(selectedMenuIndex() === 1) {
       <app-body
         [glassesFull]="glassesFull()"
-        [changeGlassesFull]="changeGlassesFull"
+        [setGlassesFull]="setGlassesFull"
         [steps]="steps()"
-        [changeSteps]="changeSteps"
+        [setSteps]="setSteps"
         [sleepTime]="sleepTime()"
-        [changeSleepTime]="changeSleepTime"
+        [setSleepTime]="setSleepTime"
         [exerciseDescription]="exerciseDescription()"
-        [changeExerciseDescription]="changeExerciseDescription"
+        [setExerciseDescription]="setExerciseDescription"
       />
       } @if(selectedMenuIndex() === 2) {
-      <app-mind />
+      <app-mind
+        [moodRating]="moodRating()"
+        [setMoodRating]="setMoodRating"
+        [restDescription]="restDescription()"
+        [setRestDescription]="setRestDescription"
+        [dayDescription]="dayDescription()"
+        [setDayDescription]="setDayDescription"
+        [stressLevel]="stressLevel()"
+        [setStressLevel]="setStressLevel"
+      />
       } @if(selectedMenuIndex() === 3) {
-      <app-goals />
+      <app-goals
+        [glassesFull]="glassesFull()"
+        [setGlassesFull]="setGlassesFull"
+        [steps]="steps()"
+        [setSteps]="setSteps"
+        [sleepTime]="sleepTime()"
+        [setSleepTime]="setSleepTime"
+        [exerciseDescription]="exerciseDescription()"
+        [setExerciseDescription]="setExerciseDescription"
+      />
       }
     </div>
   </div>

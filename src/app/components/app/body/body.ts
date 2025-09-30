@@ -1,4 +1,4 @@
-import { Component, EventEmitter, INJECTOR, Input, Output, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WaterSvg } from '../water-svg/water-svg';
 import { CommonModule } from '@angular/common';
 
@@ -9,19 +9,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './body.scss',
 })
 export class Body {
-  @Input() changeGlassesFull!: (amount: number) => void;
+  @Input() setGlassesFull!: (amount: number) => void;
   @Input() glassesFull: number = 0;
-  @Input() changeSteps!: (amount: number) => void;
+  @Input() setSteps!: (amount: number) => void;
   @Input() steps: number = 0;
-  @Input() changeSleepTime!: (time: string) => void;
+  @Input() setSleepTime!: (time: string) => void;
   @Input() sleepTime: string = '';
   @Input() exerciseDescription: string = '';
-  @Input() changeExerciseDescription!: (exerciseDescription: string) => void;
+  @Input() setExerciseDescription!: (exerciseDescription: string) => void;
 
   exerciseInputValue: string = '';
 
   onEnter(value: string) {
-    this.changeExerciseDescription(value);
+    this.setExerciseDescription(value);
 
     this.exerciseInputValue = '';
   }

@@ -16,30 +16,44 @@ import { Goals } from '../goals/goals';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Menu {
-  dateValue!: Date;
+  dateValue: Date = new Date(Date.now());
+
   selectedMenuIndex = signal(1);
   glassesFull = signal(0);
   steps = signal(0);
   sleepTime = signal('');
   exerciseDescription = signal('');
-
-  changeGlassesFull = (amount: number) => {
+  setGlassesFull = (amount: number) => {
     this.glassesFull.set(amount);
   };
-
-  changeSteps = (amount: number) => {
+  setSteps = (amount: number) => {
     this.steps.set(amount);
   };
-
-  changeSleepTime = (time: string) => {
+  setSleepTime = (time: string) => {
     this.sleepTime.set(time);
   };
-
-  changeExerciseDescription = (exerciseDescription: string) => {
+  setExerciseDescription = (exerciseDescription: string) => {
     this.exerciseDescription.set(exerciseDescription);
   };
 
-  changeIndex = (i: number) => {
+  moodRating = signal(-1);
+  restDescription = signal('');
+  dayDescription = signal('');
+  stressLevel = signal(0);
+  setMoodRating = (rating: number) => {
+    this.moodRating.set(rating);
+  };
+  setRestDescription = (restDescription: string) => {
+    this.restDescription.set(restDescription);
+  };
+  setDayDescription = (dayDescription: string) => {
+    this.dayDescription.set(dayDescription);
+  };
+  setStressLevel = (level: number) => {
+    this.stressLevel.set(level);
+  };
+
+  setIndex = (i: number) => {
     this.selectedMenuIndex.set(i);
   };
 }

@@ -1,0 +1,151 @@
+@use '../../../../styles.scss' as g;
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.mood {
+  border: 2px solid g.$mental-pink;
+  background-color: rgba(g.$mental-pink, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 100%;
+}
+
+.card-mood {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card-mood button {
+  font-size: g.$font-4xl;
+  filter: grayscale(1);
+}
+
+.active {
+  filter: grayscale(0) !important;
+}
+
+.rest {
+  border-radius: 1rem;
+  border: 2px solid g.$physical-orange;
+  background-color: rgba(g.$physical-orange, 0.1);
+  width: 100%;
+  padding: 1rem;
+  height: 100%;
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.day {
+  border-radius: 1rem;
+  border: 2px solid g.$mental-yellow;
+  background-color: rgba(g.$mental-yellow, 0.1);
+  width: 100%;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-day {
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.stress {
+  border-radius: 1rem;
+  border: 2px solid g.$mental-light-blue;
+  background-color: rgba(g.$mental-light-blue, 0.1);
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.card-stress {
+  height: clamp(5rem, 10vw, 10rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  column-gap: 2.5rem;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  width: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  border: 1px solid black;
+  padding: 0.5rem;
+  max-height: 2rem;
+  border-radius: 100px;
+}
+
+p,
+label {
+  font-size: clamp(g.$font-lg, 5vw, g.$font-xl);
+  max-width: clamp(10rem, 100%, 30rem);
+  padding: 0 1.4rem;
+}
+
+textarea {
+  resize: none;
+  border: 1px solid black;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .mood {
+    gap: 1rem;
+  }
+
+  p,
+  label {
+    padding: 0rem 0rem;
+  }
+
+  .card-stress {
+    height: 16.5rem;
+  }
+}

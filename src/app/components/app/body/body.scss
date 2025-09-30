@@ -145,6 +145,9 @@ label {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+
+  flex-direction: column;
+  height: 10rem;
 }
 
 textarea {
@@ -169,12 +172,6 @@ textarea {
 @media (max-width: 600px) {
   .water {
     gap: 1rem;
-  }
-
-  .card-exercise {
-    flex-direction: column;
-    row-gap: 2rem;
-    height: 10rem;
   }
 
   .steps {
