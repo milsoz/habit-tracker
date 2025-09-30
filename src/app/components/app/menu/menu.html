@@ -3,65 +3,72 @@
     <div class="controls">
       <div class="buttons">
         <button
-          class="tab-btn {{ selectedMenuIndex() === 1 ? 'active' : '' }}"
-          (click)="setIndex(1)"
+          class="tab-btn {{ menuData.selectedMenuIndex() === 1 ? 'active' : '' }}"
+          (click)="menuData.setIndex(1)"
         >
-          <span class="{{ selectedMenuIndex() === 1 ? ' highlight highlight-1' : '' }}">Body</span>
+          <span class="{{ menuData.selectedMenuIndex() === 1 ? ' highlight highlight-1' : '' }}"
+            >Body</span
+          >
         </button>
         <button
-          class="tab-btn {{ selectedMenuIndex() === 2 ? 'active' : '' }}"
-          (click)="setIndex(2)"
+          class="tab-btn {{ menuData.selectedMenuIndex() === 2 ? 'active' : '' }}"
+          (click)="menuData.setIndex(2)"
         >
-          <span class="{{ selectedMenuIndex() === 2 ? 'highlight highlight-2' : '' }}">Mind</span>
+          <span class="{{ menuData.selectedMenuIndex() === 2 ? 'highlight highlight-2' : '' }}"
+            >Mind</span
+          >
         </button>
         <button
-          class="tab-btn {{ selectedMenuIndex() === 3 ? 'active' : '' }}"
-          (click)="setIndex(3)"
+          class="tab-btn {{ menuData.selectedMenuIndex() === 3 ? 'active' : '' }}"
+          (click)="menuData.setIndex(3)"
         >
-          <span class="{{ selectedMenuIndex() === 3 ? ' highlight highlight-3' : '' }}">Goals</span>
+          <span class="{{ menuData.selectedMenuIndex() === 3 ? ' highlight highlight-3' : '' }}"
+            >Goals</span
+          >
         </button>
       </div>
       <p-datepicker
-        [(ngModel)]="dateValue"
+        [(ngModel)]="menuData.dateValue"
+        (onSelect)="menuData.loadDataForDate($event)"
         [showIcon]="true"
         inputId="buttondisplay"
         [showOnFocus]="true"
-      />
+      ></p-datepicker>
     </div>
 
     <div class="tab">
-      @if(selectedMenuIndex() === 1) {
+      @if(menuData.selectedMenuIndex() === 1) {
       <app-body
-        [glassesFull]="glassesFull()"
-        [setGlassesFull]="setGlassesFull"
-        [steps]="steps()"
-        [setSteps]="setSteps"
-        [sleepTime]="sleepTime()"
-        [setSleepTime]="setSleepTime"
-        [exerciseDescription]="exerciseDescription()"
-        [setExerciseDescription]="setExerciseDescription"
+        [glassesFull]="menuData.glassesFull()"
+        [setGlassesFull]="menuData.setGlassesFull"
+        [steps]="menuData.steps()"
+        [setSteps]="menuData.setSteps"
+        [sleepTime]="menuData.sleepTime()"
+        [setSleepTime]="menuData.setSleepTime"
+        [exerciseDescription]="menuData.exerciseDescription()"
+        [setExerciseDescription]="menuData.setExerciseDescription"
       />
-      } @if(selectedMenuIndex() === 2) {
+      } @if(menuData.selectedMenuIndex() === 2) {
       <app-mind
-        [moodRating]="moodRating()"
-        [setMoodRating]="setMoodRating"
-        [restDescription]="restDescription()"
-        [setRestDescription]="setRestDescription"
-        [dayDescription]="dayDescription()"
-        [setDayDescription]="setDayDescription"
-        [stressLevel]="stressLevel()"
-        [setStressLevel]="setStressLevel"
+        [moodRating]="menuData.moodRating()"
+        [setMoodRating]="menuData.setMoodRating"
+        [restDescription]="menuData.restDescription()"
+        [setRestDescription]="menuData.setRestDescription"
+        [dayDescription]="menuData.dayDescription()"
+        [setDayDescription]="menuData.setDayDescription"
+        [stressLevel]="menuData.stressLevel()"
+        [setStressLevel]="menuData.setStressLevel"
       />
-      } @if(selectedMenuIndex() === 3) {
+      } @if(menuData.selectedMenuIndex() === 3) {
       <app-goals
-        [glassesFull]="glassesFull()"
-        [setGlassesFull]="setGlassesFull"
-        [steps]="steps()"
-        [setSteps]="setSteps"
-        [sleepTime]="sleepTime()"
-        [setSleepTime]="setSleepTime"
-        [exerciseDescription]="exerciseDescription()"
-        [setExerciseDescription]="setExerciseDescription"
+        [glassesFull]="menuData.glassesFull()"
+        [setGlassesFull]="menuData.setGlassesFull"
+        [steps]="menuData.steps()"
+        [setSteps]="menuData.setSteps"
+        [sleepTime]="menuData.sleepTime()"
+        [setSleepTime]="menuData.setSleepTime"
+        [exerciseDescription]="menuData.exerciseDescription()"
+        [setExerciseDescription]="menuData.setExerciseDescription"
       />
       }
     </div>

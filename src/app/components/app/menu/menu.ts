@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Body } from '../body/body';
 import { Mind } from '../mind/mind';
 import { Goals } from '../goals/goals';
+import { MenuData } from './menuData';
 
 @Component({
   selector: 'app-menu',
@@ -16,44 +17,9 @@ import { Goals } from '../goals/goals';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Menu {
-  dateValue: Date = new Date(Date.now());
+  menuData = new MenuData();
 
-  selectedMenuIndex = signal(1);
-  glassesFull = signal(0);
-  steps = signal(0);
-  sleepTime = signal('');
-  exerciseDescription = signal('');
-  setGlassesFull = (amount: number) => {
-    this.glassesFull.set(amount);
-  };
-  setSteps = (amount: number) => {
-    this.steps.set(amount);
-  };
-  setSleepTime = (time: string) => {
-    this.sleepTime.set(time);
-  };
-  setExerciseDescription = (exerciseDescription: string) => {
-    this.exerciseDescription.set(exerciseDescription);
-  };
-
-  moodRating = signal(-1);
-  restDescription = signal('');
-  dayDescription = signal('');
-  stressLevel = signal(0);
-  setMoodRating = (rating: number) => {
-    this.moodRating.set(rating);
-  };
-  setRestDescription = (restDescription: string) => {
-    this.restDescription.set(restDescription);
-  };
-  setDayDescription = (dayDescription: string) => {
-    this.dayDescription.set(dayDescription);
-  };
-  setStressLevel = (level: number) => {
-    this.stressLevel.set(level);
-  };
-
-  setIndex = (i: number) => {
-    this.selectedMenuIndex.set(i);
+  onDateChange = (event: any) => {
+    this.menuData.loadDataForDate(event.value);
   };
 }
