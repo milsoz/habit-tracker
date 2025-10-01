@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { BtnDown } from '../btn-down/btn-down';
+import { BtnDown } from '../btn-arrow/btn-arrow';
 
 @Component({
   selector: 'app-faq',

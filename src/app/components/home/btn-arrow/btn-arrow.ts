@@ -3,8 +3,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
   selector: 'app-btn-down',
   imports: [],
-  templateUrl: './btn-down.html',
-  styleUrl: './btn-down.scss',
+  templateUrl: './btn-arrow.html',
+  styleUrl: './btn-arrow.scss',
 })
 export class BtnDown {
   @Input() isOpen!: boolean;
