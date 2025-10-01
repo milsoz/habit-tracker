@@ -1,59 +1,48 @@
-# HabitTracker
+# Habit tracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
+A simple habit tracker web application.
+Site consists of:
 
-## Development server
+1. A Landing/Home page
+2. Habit tracker app
 
-To start a local development server, run:
+# Technologies used
 
-```bash
-ng serve
-```
+The app is built in Angular v20
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Written in typescript
 
-## Code scaffolding
+Styled with SCSS
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Why SCSS? I honestly don't know.
 
-```bash
-ng generate component component-name
-```
+I wanted to check it out (never used it before)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+By the time I realised modern CSS is just as good I was already commited 😅
 
-```bash
-ng generate --help
-```
+# App description
 
-## Building
+The habit tracker has 3 tabs
 
-To build the project run:
+1. Body
+2. Mind
+3. Goals
 
-```bash
-ng build
-```
+Each one has 4 inputs for tracked info
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Physcial health related in the body
 
-## Running unit tests
+Mental health related in the mind
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Self improvement related in the goals
 
-```bash
-ng test
-```
+The app has a functioning date selector,
 
-## Running end-to-end tests
+Input data is saved to the selected date. Saved only in memory, not local storage nor a DB
 
-For end-to-end (e2e) testing, run:
+# Running the app
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Clone the repository
+2. Enter repo directory
+3. npm i
+4. npm start
