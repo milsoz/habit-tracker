@@ -1,12 +1,27 @@
 <div class="container">
   <div class="goals">
-    <p>Rate todays mood!</p>
+    <label for="goals">Add new goals:</label>
 
-    <div class="card-goals"></div>
+    <input
+      type="text"
+      name="goals"
+      id="goals"
+      #goalInput
+      (change)="onEnterGoal(goalInput.value); goalInput.value = ''"
+    />
   </div>
   <div class="current-goal">
-    <p>Select todays stress level:</p>
-    <div class="card-current-goal"></div>
+    <div class="card-current-goal">
+      <label for="goal-select">What goal did you work towards?</label>
+
+      <select name="goals" id="goal-select" [value]="currentGoal" (change)="onGoalChange($event)">
+        <option value="">--Please choose an option--</option>
+
+        @for (goal of goals; track $index; let i = $index) {
+        <option value="dog">{{ goal }}</option>
+        }
+      </select>
+    </div>
   </div>
   <div class="practice">
     @if (!practiceDescription) {

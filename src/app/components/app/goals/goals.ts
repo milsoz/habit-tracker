@@ -21,6 +21,10 @@ export class Goals {
   practiceInputValue: string = '';
   newLearnedInputValue: string = '';
 
+  onEnterGoal(goal: string) {
+    this.setGoals(goal);
+  }
+
   onEnterPractice(value: string) {
     this.setPracticeDescription(value);
 
@@ -33,5 +37,9 @@ export class Goals {
     this.newLearnedInputValue = '';
   }
 
-  glasses = Array(8).fill(0);
+  onGoalChange(e: Event) {
+    const target = e.target as HTMLSelectElement;
+
+    this.setCurrentGoal(target.value);
+  }
 }
