@@ -8,9 +8,8 @@ describe('StressSvg', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StressSvg]
-    })
-    .compileComponents();
+      imports: [StressSvg],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StressSvg);
     component = fixture.componentInstance;

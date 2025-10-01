@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-tagline',
   imports: [],
   templateUrl: './tagline.html',
-  styleUrl: './tagline.scss'
+  styleUrl: './tagline.scss',
 })
-export class Tagline {
-
-}
+export class Tagline {}

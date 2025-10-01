@@ -8,9 +8,8 @@ describe('WaterSvg', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WaterSvg]
-    })
-    .compileComponents();
+      imports: [WaterSvg],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WaterSvg);
     component = fixture.componentInstance;
