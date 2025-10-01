@@ -14,6 +14,8 @@ Written in typescript
 
 Styled with SCSS
 
+Styling is fully responsive
+
 Why SCSS? I honestly don't know.
 
 I wanted to check it out (never used it before)
