@@ -4,7 +4,7 @@
 
     <div class="card-water">
       @for (glass of glasses; track $index; let i = $index) {
-      <button (click)="onEnterGlassesFull(i + 1)">
+      <button (click)="onChangeGlassesFull(i + 1)">
         <app-water-svg [isFull]="glassesFull >= i + 1"></app-water-svg>
       </button>
       }
@@ -28,7 +28,7 @@
         name="steps"
         id="steps"
         [value]="steps"
-        (change)="onEnterSteps($event.target.valueAsNumber)"
+        (change)="onChangeSteps($event.target.valueAsNumber)"
       />
     </div>
   </div>

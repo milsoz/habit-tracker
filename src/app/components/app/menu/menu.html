@@ -51,13 +51,13 @@
       } @if(menuData.selectedMenuIndex() === 2) {
       <app-mind
         [moodRating]="menuData.moodRating()"
-        [setMoodRating]="menuData.setMoodRating"
         [restDescription]="menuData.restDescription()"
-        [setRestDescription]="menuData.setRestDescription"
         [dayDescription]="menuData.dayDescription()"
-        [setDayDescription]="menuData.setDayDescription"
         [stressLevel]="menuData.stressLevel()"
-        [setStressLevel]="menuData.setStressLevel"
+        (restDescriptionAdded)="menuData.setRestDescription($event)"
+        (dayDescriptionAdded)="menuData.setDayDescription($event)"
+        (stressLevelChanged)="menuData.setStressLevel($event)"
+        (moodRatingChanged)="menuData.setMoodRating($event)"
       />
       } @if(menuData.selectedMenuIndex() === 3) {
       <app-goals

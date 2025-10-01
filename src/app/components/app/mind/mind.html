@@ -4,7 +4,7 @@
 
     <div class="card-mood">
       @for (rating of ratings; track $index; let i = $index) {
-      <button class="{{ moodRating === i ? 'active' : '' }}" (click)="setMoodRating(i)">
+      <button class="{{ moodRating === i ? 'active' : '' }}" (click)="onChangeMoodRating(i)">
         {{ rating }}
       </button>
       }
@@ -57,7 +57,7 @@
     <p>Select todays stress level:</p>
     <div class="card-stress">
       @for (stress of stressLevels; track $index; let i = $index) {
-      <button (click)="setStressLevel(i + 1)">
+      <button (click)="onChangeStress(i + 1)">
         <app-stress-svg [stressLevelIndex]="i" [isActive]="stressLevel >= i + 1"></app-stress-svg>
       </button>
       }

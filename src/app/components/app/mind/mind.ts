@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StressSvg } from '../stress-svg/stress-svg';
 
@@ -10,28 +10,36 @@ import { StressSvg } from '../stress-svg/stress-svg';
 })
 export class Mind {
   @Input() moodRating: number = -1;
-  @Input() setMoodRating!: (rating: number) => void;
-  @Input() restDescription: string = '';
-  @Input() setRestDescription!: (dayDescription: string) => void;
-  @Input() dayDescription: string = '';
-  @Input() setDayDescription!: (dayDescription: string) => void;
-
   @Input() stressLevel: number = 0;
-  @Input() setStressLevel!: (amount: number) => void;
+  @Input() restDescription: string = '';
+  @Input() dayDescription: string = '';
+
+  @Output() restDescriptionAdded = new EventEmitter<string>();
+  @Output() dayDescriptionAdded = new EventEmitter<string>();
+  @Output() stressLevelChanged = new EventEmitter<number>();
+  @Output() moodRatingChanged = new EventEmitter<number>();
 
   dayDescriptionInputValue: string = '';
   restDescriptionInputValue: string = '';
 
   onEnterRest(value: string) {
-    this.setRestDescription(value);
+    this.restDescriptionAdded.emit(value);
 
     this.restDescriptionInputValue = '';
   }
 
   onEnterDay(value: string) {
-    this.setDayDescription(value);
+    this.dayDescriptionAdded.emit(value);
 
     this.restDescriptionInputValue = '';
+  }
+
+  onChangeStress(value: number) {
+    this.stressLevelChanged.emit(value);
+  }
+
+  onChangeMoodRating(value: number) {
+    this.moodRatingChanged.emit(value);
   }
 
   stressLevels = Array(10).fill(0);

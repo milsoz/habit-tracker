@@ -26,11 +26,11 @@ export class Body {
     this.exerciseInputValue = '';
   }
 
-  onEnterGlassesFull(amount: number) {
+  onChangeGlassesFull(amount: number) {
     this.glassesFullChanged.emit(amount);
   }
 
-  onEnterSteps(amount: number) {
+  onChangeSteps(amount: number) {
     this.stepsChanged.emit(amount);
   }
 
