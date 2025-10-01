@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 
@@ -9,37 +9,35 @@ import { CommonModule } from '@angular/common';
   styleUrl: './goals.scss',
 })
 export class Goals {
-  @Input() setGoals!: (newGoal: string) => void;
-  @Input() goals: string[] = [];
-  @Input() setCurrentGoal!: (goal: string) => void;
   @Input() currentGoal: string = '';
-  @Input() setNewLearned!: (learned: string) => void;
-  @Input() newLearned: string = '';
+  @Input() goals: string[] = [];
   @Input() practiceDescription: string = '';
-  @Input() setPracticeDescription!: (practiceDescription: string) => void;
+  @Input() newLearned: string = '';
+
+  @Output() goalAdded = new EventEmitter<string>();
+  @Output() currentGoalChanged = new EventEmitter<string>();
+  @Output() practiceChanged = new EventEmitter<string>();
+  @Output() learnedAdded = new EventEmitter<string>();
 
   practiceInputValue: string = '';
   newLearnedInputValue: string = '';
 
   onEnterGoal(goal: string) {
-    this.setGoals(goal);
+    this.goalAdded.emit(goal);
   }
 
   onEnterPractice(value: string) {
-    this.setPracticeDescription(value);
-
+    this.practiceChanged.emit(value);
     this.practiceInputValue = '';
   }
 
   onEnterLearned(value: string) {
-    this.setNewLearned(value);
-
+    this.learnedAdded.emit(value);
     this.newLearnedInputValue = '';
   }
 
   onGoalChange(e: Event) {
     const target = e.target as HTMLSelectElement;
-
-    this.setCurrentGoal(target.value);
+    this.currentGoalChanged.emit(target.value);
   }
 }

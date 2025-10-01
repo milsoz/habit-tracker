@@ -63,12 +63,12 @@
       <app-goals
         [goals]="menuData.goals()"
         [currentGoal]="menuData.currentGoal()"
-        [setGoals]="menuData.setGoals"
-        [setCurrentGoal]="menuData.setCurrentGoal"
         [practiceDescription]="menuData.practiceDescription()"
-        [setPracticeDescription]="menuData.setPracticeDescription"
         [newLearned]="menuData.newLearned()"
-        [setNewLearned]="menuData.setNewLearned"
+        (goalAdded)="menuData.setGoals($event)"
+        (currentGoalChanged)="menuData.setCurrentGoal($event)"
+        (practiceChanged)="menuData.setPracticeDescription($event)"
+        (learnedAdded)="menuData.setNewLearned($event)"
       />
       }
     </div>
