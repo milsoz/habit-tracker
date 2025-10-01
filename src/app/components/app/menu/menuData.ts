@@ -4,14 +4,21 @@ export class MenuData {
   dateValue: Date = new Date();
 
   selectedMenuIndex = signal(1);
+
   glassesFull = signal(0);
   steps = signal(0);
   sleepTime = signal('');
   exerciseDescription = signal('');
+
   moodRating = signal(-1);
   restDescription = signal('');
   dayDescription = signal('');
   stressLevel = signal(0);
+
+  goals = signal<string[]>([]);
+  currentGoal = signal('');
+  practiceDescription = signal('');
+  newLearned = signal('');
 
   dailyData: Record<string, any> = {};
 
@@ -55,6 +62,26 @@ export class MenuData {
     this.saveDataForDate();
   };
 
+  setGoals = (newGoal: string) => {
+    this.goals.update((current) => [...current, newGoal]);
+    this.saveDataForDate();
+  };
+
+  setCurrentGoal = (goal: string) => {
+    this.currentGoal.set(goal);
+    this.saveDataForDate();
+  };
+
+  setPracticeDescription = (practice: string) => {
+    this.practiceDescription.set(practice);
+    this.saveDataForDate();
+  };
+
+  setNewLearned = (learned: string) => {
+    this.newLearned.set(learned);
+    this.saveDataForDate();
+  };
+
   setIndex = (i: number) => {
     this.selectedMenuIndex.set(i);
     this.saveDataForDate();
@@ -71,6 +98,10 @@ export class MenuData {
       restDescription: this.restDescription(),
       dayDescription: this.dayDescription(),
       stressLevel: this.stressLevel(),
+      goals: this.goals(),
+      currentGoal: this.currentGoal(),
+      practiceDescription: this.practiceDescription(),
+      newLearned: this.newLearned(),
     };
   };
 
@@ -89,6 +120,10 @@ export class MenuData {
         restDescription: '',
         dayDescription: '',
         stressLevel: 0,
+        goals: this.goals(),
+        currentGoal: '',
+        practiceDescription: '',
+        newLearned: '',
       };
       this.dailyData[key] = data;
     }
@@ -101,5 +136,10 @@ export class MenuData {
     this.restDescription.set(data.restDescription);
     this.dayDescription.set(data.dayDescription);
     this.stressLevel.set(data.stressLevel);
+
+    this.goals.set(this.goals());
+    this.currentGoal.set(data.currentGoal);
+    this.practiceDescription.set(data.practiceDescription);
+    this.newLearned.set(data.newLearned);
   };
 }

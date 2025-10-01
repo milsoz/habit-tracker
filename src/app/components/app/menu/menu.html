@@ -61,14 +61,14 @@
       />
       } @if(menuData.selectedMenuIndex() === 3) {
       <app-goals
-        [glassesFull]="menuData.glassesFull()"
-        [setGlassesFull]="menuData.setGlassesFull"
-        [steps]="menuData.steps()"
-        [setSteps]="menuData.setSteps"
-        [sleepTime]="menuData.sleepTime()"
-        [setSleepTime]="menuData.setSleepTime"
-        [exerciseDescription]="menuData.exerciseDescription()"
-        [setExerciseDescription]="menuData.setExerciseDescription"
+        [goals]="menuData.goals()"
+        [currentGoal]="menuData.currentGoal()"
+        [setGoals]="menuData.setGoals"
+        [setCurrentGoal]="menuData.setCurrentGoal"
+        [practiceDescription]="menuData.practiceDescription()"
+        [setPracticeDescription]="menuData.setPracticeDescription"
+        [newLearned]="menuData.newLearned()"
+        [setNewLearned]="menuData.setNewLearned"
       />
       }
     </div>

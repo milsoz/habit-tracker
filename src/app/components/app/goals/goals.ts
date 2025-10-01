@@ -4,26 +4,33 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-goals',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './goals.html',
   styleUrl: './goals.scss',
 })
 export class Goals {
-  @Input() setGlassesFull!: (amount: number) => void;
-  @Input() glassesFull: number = 0;
-  @Input() setSteps!: (amount: number) => void;
-  @Input() steps: number = 0;
-  @Input() setSleepTime!: (time: string) => void;
-  @Input() sleepTime: string = '';
-  @Input() exerciseDescription: string = '';
-  @Input() setExerciseDescription!: (exerciseDescription: string) => void;
+  @Input() setGoals!: (newGoal: string) => void;
+  @Input() goals: string[] = [];
+  @Input() setCurrentGoal!: (goal: string) => void;
+  @Input() currentGoal: string = '';
+  @Input() setNewLearned!: (learned: string) => void;
+  @Input() newLearned: string = '';
+  @Input() practiceDescription: string = '';
+  @Input() setPracticeDescription!: (practiceDescription: string) => void;
 
-  exerciseInputValue: string = '';
+  practiceInputValue: string = '';
+  newLearnedInputValue: string = '';
 
-  onEnter(value: string) {
-    this.setExerciseDescription(value);
+  onEnterPractice(value: string) {
+    this.setPracticeDescription(value);
 
-    this.exerciseInputValue = '';
+    this.practiceInputValue = '';
+  }
+
+  onEnterLearned(value: string) {
+    this.setNewLearned(value);
+
+    this.newLearnedInputValue = '';
   }
 
   glasses = Array(8).fill(0);

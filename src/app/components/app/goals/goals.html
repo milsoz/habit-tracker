@@ -1,106 +1,56 @@
-<!-- <div class="container">
-  <div class="water">
-    <p>Water drank: {{ glassesFull }}/8 glasses</p>
+<div class="container">
+  <div class="goals">
+    <p>Rate todays mood!</p>
 
-    <div class="card-water"></div>
+    <div class="card-goals"></div>
   </div>
-  <div class="steps">
-    <div class="progress-bar" [style.--progress-value]="(steps / 8000) * 100">
-      <progress
-        [value]="(steps / 8000) * 100"
-        min="0"
-        max="100"
-        style="visibility: hidden; height: 0; width: 0"
-      ></progress>
-      <p>{{ ((steps / 8000) * 100).toFixed(0) }}%</p>
-    </div>
-
-    <div class="input-div">
-      <label for="steps">Amount of steps:</label>
-      <input
-        type="number"
-        name="steps"
-        id="steps"
-        [value]="steps"
-        (change)="changeSteps($event.target.valueAsNumber)"
-      />
-    </div>
+  <div class="current-goal">
+    <p>Select todays stress level:</p>
+    <div class="card-current-goal"></div>
   </div>
-  <div class="exercise">
-    <div class="card-exercise">
-      @if (!exerciseDescription) {
-      <label for="exerciseDescription">Todays Exercises:</label>
+  <div class="practice">
+    @if (!practiceDescription) {
+    <label for="practiceDescription">What did you to practice your skills?</label>
 
-      <textarea
-        *ngIf="!exerciseDescription"
-        #exerciseInput
-        id="exerciseDescription"
-        [value]="exerciseInputValue"
-        (keydown.enter)="onEnter(exerciseInput.value)"
-        rows="5"
-        cols="30"
-        placeholder="Describe your exercise..."
-      ></textarea>
+    <textarea
+      *ngIf="!practiceDescription"
+      #practiceDescription
+      id="practiceDescription"
+      [value]="practiceInputValue"
+      (keydown.enter)="onEnterPractice(practiceDescription.value)"
+      rows="6"
+      cols="30"
+      placeholder="I started working on a new web app. I fixed some electronics..."
+    ></textarea>
 
-      }@else {
-      <div class="sleep-text">
-        <p>{{ exerciseDescription }}</p>
-      </div>
-      }
+    }@else {
+    <div class="text-desc">
+      <h3>How I practiced:</h3>
+      <p>{{ practiceDescription }}</p>
     </div>
+    }
   </div>
-  <div class="sleep">
-    <div class="card-sleep">
-      @if (!sleepTime) {
-      <label for="sleepTime">Time slept:</label>
 
-      <input
-        type="text"
-        name="sleepTime"
-        id="sleepTime"
-        [value]="sleepTime"
-        (change)="changeSleepTime($event.target.value)"
-      />
-      } @else {
-      <div class="sleep-text">
-        <p>{{ sleepTime }}</p>
-        <svg
-          width="72px"
-          height="72px"
-          viewBox="0 0 25 25"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="#7f7ffa"
-          stroke="#7f7ffa"
-          stroke-width="0.7000000000000001"
-        >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-          <g id="SVGRepo_iconCarrier">
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #7f7ffa;
-                }
-              </style>
-            </defs>
-            <g id="sleep">
-              <path
-                class="cls-1"
-                d="M13.5,12H5.34L13.42,2a.61.61,0,0,0,.08-.66A.63.63,0,0,0,12.93,1H4.5a.5.5,0,0,0,0,1h7.66L4.08,12a.61.61,0,0,0-.08.66.63.63,0,0,0,.57.36H13.5a.5.5,0,0,0,0-1Z"
-              ></path>
-              <path
-                class="cls-1"
-                d="M13.05,16.35a.62.62,0,0,0-.56-.35h-5a.5.5,0,0,0,0,1h4.23L7.07,23a.63.63,0,0,0,.5,1H12.5a.5.5,0,0,0,0-1H8.33L13,17A.61.61,0,0,0,13.05,16.35Z"
-              ></path>
-              <path
-                class="cls-1"
-                d="M22.41,9.35A.62.62,0,0,0,21.85,9H15.5a.5.5,0,0,0,0,1h5.59l-6.21,8a.63.63,0,0,0-.07.67.64.64,0,0,0,.57.35H21.5a.5.5,0,0,0,0-1H16.13l6.22-8A.63.63,0,0,0,22.41,9.35Z"
-              ></path>
-            </g>
-          </g>
-        </svg>
-      </div>
-      }
+  <div class="learn">
+    @if (!newLearned) {
+    <label for="newLearned">Did you learn something new?</label>
+
+    <textarea
+      *ngIf="!newLearned"
+      #newLearned
+      id="newLearned"
+      [value]="newLearnedInputValue"
+      (keydown.enter)="onEnterLearned(newLearned.value)"
+      rows="6"
+      cols="30"
+      placeholder="I learned how to center a div. I learned how black holes are created..."
+    ></textarea>
+
+    }@else {
+    <div class="text-desc">
+      <h3>What I Learned:</h3>
+      <p>{{ newLearned }}</p>
     </div>
+    }
   </div>
-</div> -->
+</div>
