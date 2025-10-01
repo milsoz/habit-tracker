@@ -1,12 +1,12 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-btn-down',
+  selector: 'app-btn-arrow',
   imports: [],
   templateUrl: './btn-arrow.html',
   styleUrl: './btn-arrow.scss',
 })
-export class BtnDown {
+export class BtnArrow {
   @Input() isOpen!: boolean;
   @Output() open = new EventEmitter<void>();
 

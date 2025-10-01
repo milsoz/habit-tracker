@@ -8,7 +8,7 @@
       <div class="qa-container">
         <div class="question">
           <p>Do I have to install anything?</p>
-          <app-btn-down (open)="changeOpen(1)" [isOpen]="openIndex() === 1" />
+          <app-btn-arrow (open)="changeOpen(1)" [isOpen]="openIndex() === 1" />
         </div>
         <div class="answer {{ openIndex() !== 1 ? 'hidden' : '' }}">
           <p>
@@ -21,7 +21,7 @@
       <div class="qa-container">
         <div class="question">
           <p>Will my info be saved?</p>
-          <app-btn-down (open)="changeOpen(2)" [isOpen]="openIndex() === 2" />
+          <app-btn-arrow (open)="changeOpen(2)" [isOpen]="openIndex() === 2" />
         </div>
 
         <div class="answer {{ openIndex() !== 2 ? 'hidden' : '' }}">
@@ -35,7 +35,7 @@
       <div class="qa-container">
         <div class="question">
           <p>Is the app free?</p>
-          <app-btn-down (open)="changeOpen(3)" [isOpen]="openIndex() === 3" />
+          <app-btn-arrow (open)="changeOpen(3)" [isOpen]="openIndex() === 3" />
         </div>
 
         <div class="answer {{ openIndex() !== 3 ? 'hidden' : '' }}">

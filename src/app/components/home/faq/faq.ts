@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { BtnDown } from '../btn-arrow/btn-arrow';
+import { BtnArrow } from '../btn-arrow/btn-arrow';
 
 @Component({
   selector: 'app-faq',
-  imports: [BtnDown],
+  imports: [BtnArrow],
   templateUrl: './faq.html',
   styleUrl: './faq.scss',
 })
