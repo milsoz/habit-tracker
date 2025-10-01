@@ -48,3 +48,7 @@ Input data is saved to the selected date. Saved only in memory, not local storag
 2. Enter repo directory
 3. npm i
 4. npm start
+
+# Video presentation
+
+https://github.com/user-attachments/assets/b64bad53-20b9-4fd3-bd73-f3e0681692a7
