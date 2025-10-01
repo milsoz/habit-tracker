@@ -40,13 +40,13 @@
       @if(menuData.selectedMenuIndex() === 1) {
       <app-body
         [glassesFull]="menuData.glassesFull()"
-        [setGlassesFull]="menuData.setGlassesFull"
         [steps]="menuData.steps()"
-        [setSteps]="menuData.setSteps"
         [sleepTime]="menuData.sleepTime()"
-        [setSleepTime]="menuData.setSleepTime"
         [exerciseDescription]="menuData.exerciseDescription()"
-        [setExerciseDescription]="menuData.setExerciseDescription"
+        (glassesFullChanged)="menuData.setGlassesFull($event)"
+        (exerciseDescriptionChanged)="menuData.setExerciseDescription($event)"
+        (stepsChanged)="menuData.setSteps($event)"
+        (sleepTimeChanged)="menuData.setSleepTime($event)"
       />
       } @if(menuData.selectedMenuIndex() === 2) {
       <app-mind

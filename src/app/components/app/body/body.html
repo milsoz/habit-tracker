@@ -4,7 +4,7 @@
 
     <div class="card-water">
       @for (glass of glasses; track $index; let i = $index) {
-      <button (click)="setGlassesFull(i + 1)">
+      <button (click)="onEnterGlassesFull(i + 1)">
         <app-water-svg [isFull]="glassesFull >= i + 1"></app-water-svg>
       </button>
       }
@@ -28,7 +28,7 @@
         name="steps"
         id="steps"
         [value]="steps"
-        (change)="setSteps($event.target.valueAsNumber)"
+        (change)="onEnterSteps($event.target.valueAsNumber)"
       />
     </div>
   </div>
@@ -41,7 +41,7 @@
       #exerciseInput
       id="exerciseDescription"
       [value]="exerciseInputValue"
-      (keydown.enter)="onEnter(exerciseInput.value)"
+      (keydown.enter)="onEnterExercise(exerciseInput.value)"
       rows="5"
       cols="30"
       placeholder="I strechted for 10 minutes. Went to the gym..."
@@ -63,7 +63,7 @@
       name="sleepTime"
       id="sleepTime"
       [value]="sleepTime"
-      (change)="setSleepTime($event.target.value)"
+      (change)="onEnterSleepTIme($event.target.value)"
     />
     } @else {
     <div class="sleep-text">
