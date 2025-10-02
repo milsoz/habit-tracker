@@ -51,4 +51,10 @@ Input data is saved to the selected date. Saved only in memory, not local storag
 
 # Video presentation
 
-https://github.com/user-attachments/assets/b64bad53-20b9-4fd3-bd73-f3e0681692a7
+Gif:
+
+![Image](https://github.com/user-attachments/assets/416920c3-cffe-49c5-ae84-3082d6f3fc14)
+
+MP4 version (gif has a grain-like effect for some reason):
+
+https://github.com/user-attachments/assets/7bb18cc7-1c43-424e-a663-6eb684e9ecc9
