@@ -18,8 +18,4 @@ import { MenuData } from './menuData';
 })
 export class Menu {
   menuData = new MenuData();
-
-  onDateChange = (event: any) => {
-    this.menuData.loadDataForDate(event.value);
-  };
 }

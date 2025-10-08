@@ -1,5 +1,20 @@
 import { signal } from '@angular/core';
 
+interface DailyData {
+  glassesFull: number;
+  steps: number;
+  sleepTime: string;
+  exerciseDescription: string;
+  moodRating: number;
+  restDescription: string;
+  dayDescription: string;
+  stressLevel: number;
+  goals: string[];
+  currentGoal: string;
+  practiceDescription: string;
+  newLearned: string;
+}
+
 export class MenuData {
   dateValue: Date = new Date();
 
@@ -20,45 +35,10 @@ export class MenuData {
   practiceDescription = signal('');
   newLearned = signal('');
 
-  dailyData: Record<string, any> = {};
+  dailyData: Record<string, DailyData> = {};
 
-  setGlassesFull = (amount: number) => {
-    this.glassesFull.set(amount);
-    this.saveDataForDate();
-  };
-
-  setSteps = (amount: number) => {
-    this.steps.set(amount);
-    this.saveDataForDate();
-  };
-
-  setSleepTime = (time: string) => {
-    this.sleepTime.set(time);
-    this.saveDataForDate();
-  };
-
-  setExerciseDescription = (desc: string) => {
-    this.exerciseDescription.set(desc);
-    this.saveDataForDate();
-  };
-
-  setMoodRating = (rating: number) => {
-    this.moodRating.set(rating);
-    this.saveDataForDate();
-  };
-
-  setRestDescription = (desc: string) => {
-    this.restDescription.set(desc);
-    this.saveDataForDate();
-  };
-
-  setDayDescription = (desc: string) => {
-    this.dayDescription.set(desc);
-    this.saveDataForDate();
-  };
-
-  setStressLevel = (level: number) => {
-    this.stressLevel.set(level);
+  setSignal = <T>(signalRef: { set: (v: T) => void }, value: T) => {
+    signalRef.set(value);
     this.saveDataForDate();
   };
 
@@ -67,28 +47,21 @@ export class MenuData {
     this.saveDataForDate();
   };
 
-  setCurrentGoal = (goal: string) => {
-    this.currentGoal.set(goal);
-    this.saveDataForDate();
-  };
-
-  setPracticeDescription = (practice: string) => {
-    this.practiceDescription.set(practice);
-    this.saveDataForDate();
-  };
-
-  setNewLearned = (learned: string) => {
-    this.newLearned.set(learned);
-    this.saveDataForDate();
-  };
-
-  setIndex = (i: number) => {
-    this.selectedMenuIndex.set(i);
-    this.saveDataForDate();
-  };
+  setGlassesFull = (amount: number) => this.setSignal(this.glassesFull, amount);
+  setSteps = (amount: number) => this.setSignal(this.steps, amount);
+  setSleepTime = (time: string) => this.setSignal(this.sleepTime, time);
+  setExerciseDescription = (desc: string) => this.setSignal(this.exerciseDescription, desc);
+  setMoodRating = (rating: number) => this.setSignal(this.moodRating, rating);
+  setRestDescription = (desc: string) => this.setSignal(this.restDescription, desc);
+  setDayDescription = (desc: string) => this.setSignal(this.dayDescription, desc);
+  setStressLevel = (level: number) => this.setSignal(this.stressLevel, level);
+  setCurrentGoal = (goal: string) => this.setSignal(this.currentGoal, goal);
+  setPracticeDescription = (practice: string) => this.setSignal(this.practiceDescription, practice);
+  setNewLearned = (learned: string) => this.setSignal(this.newLearned, learned);
+  setIndex = (i: number) => this.setSignal(this.selectedMenuIndex, i);
 
   private saveDataForDate = () => {
-    const key = this.dateValue.toISOString().split('T')[0];
+    const key = this.getDateKey(this.dateValue);
     this.dailyData[key] = {
       glassesFull: this.glassesFull(),
       steps: this.steps(),
@@ -107,7 +80,7 @@ export class MenuData {
 
   loadDataForDate = (date: Date) => {
     this.dateValue = date;
-    const key = date.toISOString().split('T')[0];
+    const key = this.getDateKey(date);
     let data = this.dailyData[key];
 
     if (!data) {
@@ -120,7 +93,7 @@ export class MenuData {
         restDescription: '',
         dayDescription: '',
         stressLevel: 0,
-        goals: this.goals(),
+        goals: [],
         currentGoal: '',
         practiceDescription: '',
         newLearned: '',
@@ -137,9 +110,16 @@ export class MenuData {
     this.dayDescription.set(data.dayDescription);
     this.stressLevel.set(data.stressLevel);
 
-    this.goals.set(this.goals());
+    this.goals.set(data.goals);
     this.currentGoal.set(data.currentGoal);
     this.practiceDescription.set(data.practiceDescription);
     this.newLearned.set(data.newLearned);
   };
+
+  private getDateKey(date: Date = this.dateValue): string {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 }
