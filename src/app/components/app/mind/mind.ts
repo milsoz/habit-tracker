@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { StressSvg } from '../stress-svg/stress-svg';
 
 @Component({
   selector: 'app-mind',
-  imports: [CommonModule, StressSvg],
+  imports: [StressSvg],
   templateUrl: './mind.html',
   styleUrl: './mind.scss',
 })

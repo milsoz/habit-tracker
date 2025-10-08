@@ -28,7 +28,6 @@
     <label for="practiceDescription">What did you to practice your skills?</label>
 
     <textarea
-      *ngIf="!practiceDescription"
       #practiceDescription
       id="practiceDescription"
       [value]="practiceInputValue"
@@ -51,7 +50,6 @@
     <label for="newLearned">Did you learn something new?</label>
 
     <textarea
-      *ngIf="!newLearned"
       #newLearned
       id="newLearned"
       [value]="newLearnedInputValue"

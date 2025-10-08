@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-goals',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './goals.html',
   styleUrl: './goals.scss',
 })

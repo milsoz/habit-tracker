@@ -15,7 +15,6 @@
     <label for="restDescription">What did you do to relax?</label>
 
     <textarea
-      *ngIf="!restDescription"
       #restDescription
       id="restDescription"
       [value]="restDescriptionInputValue"
@@ -38,7 +37,6 @@
     <label for="dayDescription">Note something about your day</label>
 
     <textarea
-      *ngIf="!dayDescription"
       #dayDescription
       id="dayDescription"
       [value]="dayDescriptionInputValue"

@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WaterSvg } from '../water-svg/water-svg';
-import { CommonModule } from '@angular/common';
 import { SleepSvg } from '../sleep-svg/sleep-svg';
 
 @Component({
   selector: 'app-body',
-  imports: [WaterSvg, CommonModule, SleepSvg],
+  imports: [WaterSvg, SleepSvg],
   templateUrl: './body.html',
   styleUrl: './body.scss',
 })
