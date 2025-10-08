@@ -93,7 +93,7 @@ export class MenuData {
         restDescription: '',
         dayDescription: '',
         stressLevel: 0,
-        goals: [],
+        goals: this.goals(),
         currentGoal: '',
         practiceDescription: '',
         newLearned: '',
@@ -110,7 +110,7 @@ export class MenuData {
     this.dayDescription.set(data.dayDescription);
     this.stressLevel.set(data.stressLevel);
 
-    this.goals.set(data.goals);
+    this.goals.set(this.goals());
     this.currentGoal.set(data.currentGoal);
     this.practiceDescription.set(data.practiceDescription);
     this.newLearned.set(data.newLearned);
