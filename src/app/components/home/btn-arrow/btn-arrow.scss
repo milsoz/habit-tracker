@@ -5,3 +5,11 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+svg {
+  transition: all 200ms ease-in-out;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
