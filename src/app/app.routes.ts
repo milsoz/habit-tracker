@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { AppPage } from './pages/app-page/app-page';
-import { HomePage } from './pages/home-page/home-page';
+import { HomePage } from './features/home/home-page/home-page';
+import { AppPage } from './features/app/app-page/app-page';
 
 export const routes: Routes = [
   {
