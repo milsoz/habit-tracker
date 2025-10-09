@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { MenuDataService } from '../../services/menu-data';
 
 @Component({
   selector: 'app-goals',
@@ -7,35 +8,27 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './goals.scss',
 })
 export class Goals {
-  @Input() currentGoal: string = '';
-  @Input() goals: string[] = [];
-  @Input() practiceDescription: string = '';
-  @Input() newLearned: string = '';
-
-  @Output() goalAdded = new EventEmitter<string>();
-  @Output() currentGoalChanged = new EventEmitter<string>();
-  @Output() practiceChanged = new EventEmitter<string>();
-  @Output() learnedAdded = new EventEmitter<string>();
-
   practiceInputValue: string = '';
   newLearnedInputValue: string = '';
 
+  constructor(public data: MenuDataService) {}
+
   onEnterGoal(goal: string) {
-    this.goalAdded.emit(goal);
+    this.data.setGoals(goal);
   }
 
   onEnterPractice(value: string) {
-    this.practiceChanged.emit(value);
+    this.data.setPracticeDescription(value);
     this.practiceInputValue = '';
   }
 
   onEnterLearned(value: string) {
-    this.learnedAdded.emit(value);
+    this.data.setNewLearned(value);
     this.newLearnedInputValue = '';
   }
 
   onGoalChange(e: Event) {
     const target = e.target as HTMLSelectElement;
-    this.currentGoalChanged.emit(target.value);
+    this.data.setCurrentGoal(target.value);
   }
 }

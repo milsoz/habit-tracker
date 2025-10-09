@@ -1,4 +1,4 @@
-import { signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 interface DailyData {
   glassesFull: number;
@@ -15,7 +15,10 @@ interface DailyData {
   newLearned: string;
 }
 
-export class MenuData {
+@Injectable({
+  providedIn: 'root',
+})
+export class MenuDataService {
   dateValue: Date = new Date();
 
   selectedMenuIndex = signal(1);
@@ -36,6 +39,31 @@ export class MenuData {
   newLearned = signal('');
 
   dailyData: Record<string, DailyData> = {};
+
+  private getDateKey(date: Date = this.dateValue): string {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  private saveDataForDate = () => {
+    const key = this.getDateKey(this.dateValue);
+    this.dailyData[key] = {
+      glassesFull: this.glassesFull(),
+      steps: this.steps(),
+      sleepTime: this.sleepTime(),
+      exerciseDescription: this.exerciseDescription(),
+      moodRating: this.moodRating(),
+      restDescription: this.restDescription(),
+      dayDescription: this.dayDescription(),
+      stressLevel: this.stressLevel(),
+      goals: this.goals(),
+      currentGoal: this.currentGoal(),
+      practiceDescription: this.practiceDescription(),
+      newLearned: this.newLearned(),
+    };
+  };
 
   setSignal = <T>(signalRef: { set: (v: T) => void }, value: T) => {
     signalRef.set(value);
@@ -59,24 +87,6 @@ export class MenuData {
   setPracticeDescription = (practice: string) => this.setSignal(this.practiceDescription, practice);
   setNewLearned = (learned: string) => this.setSignal(this.newLearned, learned);
   setIndex = (i: number) => this.setSignal(this.selectedMenuIndex, i);
-
-  private saveDataForDate = () => {
-    const key = this.getDateKey(this.dateValue);
-    this.dailyData[key] = {
-      glassesFull: this.glassesFull(),
-      steps: this.steps(),
-      sleepTime: this.sleepTime(),
-      exerciseDescription: this.exerciseDescription(),
-      moodRating: this.moodRating(),
-      restDescription: this.restDescription(),
-      dayDescription: this.dayDescription(),
-      stressLevel: this.stressLevel(),
-      goals: this.goals(),
-      currentGoal: this.currentGoal(),
-      practiceDescription: this.practiceDescription(),
-      newLearned: this.newLearned(),
-    };
-  };
 
   loadDataForDate = (date: Date) => {
     this.dateValue = date;
@@ -115,11 +125,4 @@ export class MenuData {
     this.practiceDescription.set(data.practiceDescription);
     this.newLearned.set(data.newLearned);
   };
-
-  private getDateKey(date: Date = this.dateValue): string {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
 }

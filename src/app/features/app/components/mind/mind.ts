@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { StressSvg } from '../stress-svg/stress-svg';
+import { MenuDataService } from '../../services/menu-data';
 
 @Component({
   selector: 'app-mind',
@@ -8,39 +9,28 @@ import { StressSvg } from '../stress-svg/stress-svg';
   styleUrl: './mind.scss',
 })
 export class Mind {
-  @Input() moodRating: number = -1;
-  @Input() stressLevel: number = 0;
-  @Input() restDescription: string = '';
-  @Input() dayDescription: string = '';
-
-  @Output() restDescriptionAdded = new EventEmitter<string>();
-  @Output() dayDescriptionAdded = new EventEmitter<string>();
-  @Output() stressLevelChanged = new EventEmitter<number>();
-  @Output() moodRatingChanged = new EventEmitter<number>();
-
   dayDescriptionInputValue: string = '';
   restDescriptionInputValue: string = '';
+  stressLevels = Array(10).fill(0);
+  ratings = ['😭', '🙁', '😐', '🙂', '😁'];
+
+  constructor(public data: MenuDataService) {}
 
   onEnterRest(value: string) {
-    this.restDescriptionAdded.emit(value);
-
+    this.data.setRestDescription(value);
     this.restDescriptionInputValue = '';
   }
 
   onEnterDay(value: string) {
-    this.dayDescriptionAdded.emit(value);
-
-    this.restDescriptionInputValue = '';
+    this.data.setDayDescription(value);
+    this.dayDescriptionInputValue = '';
   }
 
   onChangeStress(value: number) {
-    this.stressLevelChanged.emit(value);
+    this.data.setStressLevel(value);
   }
 
   onChangeMoodRating(value: number) {
-    this.moodRatingChanged.emit(value);
+    this.data.setMoodRating(value);
   }
-
-  stressLevels = Array(10).fill(0);
-  ratings = ['😭', '🙁', '😐', '🙂', '😁'];
 }

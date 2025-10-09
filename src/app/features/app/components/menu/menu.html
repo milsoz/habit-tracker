@@ -3,33 +3,33 @@
     <div class="controls">
       <div class="buttons">
         <button
-          class="tab-btn {{ menuData.selectedMenuIndex() === 1 ? 'active' : '' }}"
-          (click)="menuData.setIndex(1)"
+          class="tab-btn {{ data.selectedMenuIndex() === 1 ? 'active' : '' }}"
+          (click)="data.setIndex(1)"
         >
-          <span class="{{ menuData.selectedMenuIndex() === 1 ? ' highlight highlight-1' : '' }}"
+          <span class="{{ data.selectedMenuIndex() === 1 ? ' highlight highlight-1' : '' }}"
             >Body</span
           >
         </button>
         <button
-          class="tab-btn {{ menuData.selectedMenuIndex() === 2 ? 'active' : '' }}"
-          (click)="menuData.setIndex(2)"
+          class="tab-btn {{ data.selectedMenuIndex() === 2 ? 'active' : '' }}"
+          (click)="data.setIndex(2)"
         >
-          <span class="{{ menuData.selectedMenuIndex() === 2 ? 'highlight highlight-2' : '' }}"
+          <span class="{{ data.selectedMenuIndex() === 2 ? 'highlight highlight-2' : '' }}"
             >Mind</span
           >
         </button>
         <button
-          class="tab-btn {{ menuData.selectedMenuIndex() === 3 ? 'active' : '' }}"
-          (click)="menuData.setIndex(3)"
+          class="tab-btn {{ data.selectedMenuIndex() === 3 ? 'active' : '' }}"
+          (click)="data.setIndex(3)"
         >
-          <span class="{{ menuData.selectedMenuIndex() === 3 ? ' highlight highlight-3' : '' }}"
+          <span class="{{ data.selectedMenuIndex() === 3 ? ' highlight highlight-3' : '' }}"
             >Goals</span
           >
         </button>
       </div>
       <p-datepicker
-        [(ngModel)]="menuData.dateValue"
-        (onSelect)="menuData.loadDataForDate($event)"
+        [(ngModel)]="data.dateValue"
+        (onSelect)="data.loadDataForDate($event)"
         [showIcon]="true"
         inputId="buttondisplay"
         [showOnFocus]="true"
@@ -37,39 +37,12 @@
     </div>
 
     <div class="tab">
-      @if(menuData.selectedMenuIndex() === 1) {
-      <app-body
-        [glassesFull]="menuData.glassesFull()"
-        [steps]="menuData.steps()"
-        [sleepTime]="menuData.sleepTime()"
-        [exerciseDescription]="menuData.exerciseDescription()"
-        (glassesFullChanged)="menuData.setGlassesFull($event)"
-        (exerciseDescriptionChanged)="menuData.setExerciseDescription($event)"
-        (stepsChanged)="menuData.setSteps($event)"
-        (sleepTimeChanged)="menuData.setSleepTime($event)"
-      />
-      } @if(menuData.selectedMenuIndex() === 2) {
-      <app-mind
-        [moodRating]="menuData.moodRating()"
-        [restDescription]="menuData.restDescription()"
-        [dayDescription]="menuData.dayDescription()"
-        [stressLevel]="menuData.stressLevel()"
-        (restDescriptionAdded)="menuData.setRestDescription($event)"
-        (dayDescriptionAdded)="menuData.setDayDescription($event)"
-        (stressLevelChanged)="menuData.setStressLevel($event)"
-        (moodRatingChanged)="menuData.setMoodRating($event)"
-      />
-      } @if(menuData.selectedMenuIndex() === 3) {
-      <app-goals
-        [goals]="menuData.goals()"
-        [currentGoal]="menuData.currentGoal()"
-        [practiceDescription]="menuData.practiceDescription()"
-        [newLearned]="menuData.newLearned()"
-        (goalAdded)="menuData.setGoals($event)"
-        (currentGoalChanged)="menuData.setCurrentGoal($event)"
-        (practiceChanged)="menuData.setPracticeDescription($event)"
-        (learnedAdded)="menuData.setNewLearned($event)"
-      />
+      @if(data.selectedMenuIndex() === 1) {
+      <app-body />
+      } @if(data.selectedMenuIndex() === 2) {
+      <app-mind />
+      } @if(data.selectedMenuIndex() === 3) {
+      <app-goals />
       }
     </div>
   </div>

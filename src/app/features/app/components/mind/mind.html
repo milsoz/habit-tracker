@@ -4,14 +4,14 @@
 
     <div class="card-mood">
       @for (rating of ratings; track $index; let i = $index) {
-      <button class="{{ moodRating === i ? 'active' : '' }}" (click)="onChangeMoodRating(i)">
+      <button class="{{ data.moodRating() === i ? 'active' : '' }}" (click)="onChangeMoodRating(i)">
         {{ rating }}
       </button>
       }
     </div>
   </div>
   <div class="rest">
-    @if (!restDescription) {
+    @if (!data.restDescription()) {
     <label for="restDescription">What did you do to relax?</label>
 
     <textarea
@@ -27,13 +27,13 @@
     }@else {
     <div class="text-desc">
       <h3>My day:</h3>
-      <p>{{ restDescription }}</p>
+      <p>{{ data.restDescription() }}</p>
     </div>
 
     }
   </div>
   <div class="day">
-    @if (!dayDescription) {
+    @if (!data.dayDescription()) {
     <label for="dayDescription">Note something about your day</label>
 
     <textarea
@@ -49,7 +49,7 @@
     }@else {
     <div class="text-desc">
       <h3>My day:</h3>
-      <p>{{ dayDescription }}</p>
+      <p>{{ data.dayDescription() }}</p>
     </div>
     }
   </div>
@@ -58,7 +58,10 @@
     <div class="card-stress">
       @for (stress of stressLevels; track $index; let i = $index) {
       <button (click)="onChangeStress(i + 1)">
-        <app-stress-svg [stressLevelIndex]="i" [isActive]="stressLevel >= i + 1"></app-stress-svg>
+        <app-stress-svg
+          [stressLevelIndex]="i"
+          [isActive]="data.stressLevel() >= i + 1"
+        ></app-stress-svg>
       </button>
       }
     </div>

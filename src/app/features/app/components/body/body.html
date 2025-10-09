@@ -1,24 +1,24 @@
 <div class="container">
   <div class="water">
-    <p>Water drank: {{ glassesFull }}/8 glasses</p>
+    <p>Water drank: {{ data.glassesFull() }}/8 glasses</p>
 
     <div class="card-water">
       @for (glass of glasses; track $index; let i = $index) {
       <button (click)="onChangeGlassesFull(i + 1)">
-        <app-water-svg [isFull]="glassesFull >= i + 1"></app-water-svg>
+        <app-water-svg [isFull]="data.glassesFull() >= i + 1"></app-water-svg>
       </button>
       }
     </div>
   </div>
   <div class="steps">
-    <div class="progress-bar" [style.--progress-value]="(steps / 8000) * 100">
+    <div class="progress-bar" [style.--progress-value]="(data.steps() / 8000) * 100">
       <progress
-        [value]="(steps / 8000) * 100"
+        [value]="(data.steps() / 8000) * 100"
         min="0"
         max="100"
         style="visibility: hidden; height: 0; width: 0"
       ></progress>
-      <p>{{ ((steps / 8000) * 100).toFixed(0) }}%</p>
+      <p>{{ ((data.steps() / 8000) * 100).toFixed(0) }}%</p>
     </div>
 
     <div class="input-div">
@@ -27,13 +27,13 @@
         type="number"
         name="steps"
         id="steps"
-        [value]="steps"
+        [value]="data.steps()"
         (change)="onChangeSteps($event.target.valueAsNumber)"
       />
     </div>
   </div>
   <div class="exercise">
-    @if (!exerciseDescription) {
+    @if (!data.exerciseDescription()) {
     <label for="exerciseDescription">Todays Exercises:</label>
 
     <textarea
@@ -49,24 +49,24 @@
     }@else {
     <div class="text-desc">
       <h3>Exercises:</h3>
-      <p>{{ exerciseDescription }}</p>
+      <p>{{ data.exerciseDescription() }}</p>
     </div>
     }
   </div>
   <div class="sleep">
-    @if (!sleepTime) {
+    @if (!data.sleepTime()) {
     <label for="sleepTime">Time slept:</label>
 
     <input
       type="text"
       name="sleepTime"
       id="sleepTime"
-      [value]="sleepTime"
+      [value]="data.sleepTime()"
       (change)="onEnterSleepTIme($event.target.value)"
     />
     } @else {
     <div class="sleep-text">
-      <p>{{ sleepTime }}</p>
+      <p>{{ data.sleepTime() }}</p>
       <app-sleep-svg />
     </div>
     }

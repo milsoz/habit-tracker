@@ -14,17 +14,22 @@
     <div class="card-current-goal">
       <label for="goal-select">What goal did you work towards?</label>
 
-      <select name="goals" id="goal-select" [value]="currentGoal" (change)="onGoalChange($event)">
+      <select
+        name="goals"
+        id="goal-select"
+        [value]="data.currentGoal()"
+        (change)="onGoalChange($event)"
+      >
         <option value="">--Please choose an option--</option>
 
-        @for (goal of goals; track $index; let i = $index) {
+        @for (goal of data.goals(); track $index; let i = $index) {
         <option value="dog">{{ goal }}</option>
         }
       </select>
     </div>
   </div>
   <div class="practice">
-    @if (!practiceDescription) {
+    @if (!data.practiceDescription()) {
     <label for="practiceDescription">What did you to practice your skills?</label>
 
     <textarea
@@ -40,13 +45,13 @@
     }@else {
     <div class="text-desc">
       <h3>How I practiced:</h3>
-      <p>{{ practiceDescription }}</p>
+      <p>{{ data.practiceDescription() }}</p>
     </div>
     }
   </div>
 
   <div class="learn">
-    @if (!newLearned) {
+    @if (!data.newLearned()) {
     <label for="newLearned">Did you learn something new?</label>
 
     <textarea
@@ -62,7 +67,7 @@
     }@else {
     <div class="text-desc">
       <h3>What I Learned:</h3>
-      <p>{{ newLearned }}</p>
+      <p>{{ data.newLearned() }}</p>
     </div>
     }
   </div>

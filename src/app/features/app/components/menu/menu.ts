@@ -1,11 +1,11 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { DatePickerModule } from 'primeng/datepicker';
 import { FormsModule } from '@angular/forms';
 import { Body } from '../body/body';
 import { Mind } from '../mind/mind';
 import { Goals } from '../goals/goals';
-import { MenuData } from './menuData';
+import { MenuDataService } from '../../services/menu-data';
 
 @Component({
   selector: 'app-menu',
@@ -17,5 +17,5 @@ import { MenuData } from './menuData';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Menu {
-  menuData = new MenuData();
+  constructor(public data: MenuDataService) {}
 }

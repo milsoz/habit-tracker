@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { WaterSvg } from '../water-svg/water-svg';
 import { SleepSvg } from '../sleep-svg/sleep-svg';
+import { MenuDataService } from '../../services/menu-data';
 
 @Component({
   selector: 'app-body',
@@ -9,33 +10,25 @@ import { SleepSvg } from '../sleep-svg/sleep-svg';
   styleUrl: './body.scss',
 })
 export class Body {
-  @Input() glassesFull: number = 0;
-  @Input() steps: number = 0;
-  @Input() exerciseDescription: string = '';
-  @Input() sleepTime: string = '';
-
-  @Output() glassesFullChanged = new EventEmitter<number>();
-  @Output() exerciseDescriptionChanged = new EventEmitter();
-  @Output() stepsChanged = new EventEmitter();
-  @Output() sleepTimeChanged = new EventEmitter();
+  constructor(public data: MenuDataService) {}
 
   exerciseInputValue: string = '';
 
   onEnterExercise(value: string) {
-    this.exerciseDescriptionChanged.emit(value);
+    this.data.setExerciseDescription(value);
     this.exerciseInputValue = '';
   }
 
   onChangeGlassesFull(amount: number) {
-    this.glassesFullChanged.emit(amount);
+    this.data.setGlassesFull(amount);
   }
 
   onChangeSteps(amount: number) {
-    this.stepsChanged.emit(amount);
+    this.data.setSteps(amount);
   }
 
   onEnterSleepTIme(time: string) {
-    this.sleepTimeChanged.emit(time);
+    this.data.setSleepTime(time);
   }
 
   glasses = Array(8).fill(0);
