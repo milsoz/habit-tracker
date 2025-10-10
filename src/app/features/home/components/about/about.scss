@@ -11,6 +11,10 @@ section {
   color: g.$text-dark;
 }
 
+img {
+  user-select: none;
+}
+
 .about {
   display: flex;
   flex-direction: column;

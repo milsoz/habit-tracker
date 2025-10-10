@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { WaterSvg } from '../water-svg/water-svg';
-import { SleepSvg } from '../sleep-svg/sleep-svg';
 import { MenuDataService } from '../../services/menu-data';
 
 @Component({
   selector: 'app-body',
-  imports: [WaterSvg, SleepSvg],
   templateUrl: './body.html',
   styleUrl: './body.scss',
 })

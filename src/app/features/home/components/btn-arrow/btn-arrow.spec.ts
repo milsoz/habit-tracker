@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BtnDown } from './btn-arrow';
+import { BtnArrow } from './btn-arrow';
 
-describe('BtnDown', () => {
-  let component: BtnDown;
-  let fixture: ComponentFixture<BtnDown>;
+describe('BtnArrow', () => {
+  let component: BtnArrow;
+  let fixture: ComponentFixture<BtnArrow>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BtnDown],
+      imports: [BtnArrow],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BtnDown);
+    fixture = TestBed.createComponent(BtnArrow);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,7 +5,16 @@
     <div class="card-water">
       @for (glass of glasses; track $index; let i = $index) {
       <button (click)="onChangeGlassesFull(i + 1)">
-        <app-water-svg [isFull]="data.glassesFull() >= i + 1"></app-water-svg>
+        <img
+          src="/glassFull.svg"
+          alt="Full glass of water"
+          [class]="data.glassesFull() >= i + 1 ? 'visible' : 'hidden'"
+        />
+        <img
+          src="/glassEmpty.svg"
+          alt="Empty glass of water"
+          [class]="data.glassesFull() >= i + 1 ? 'hidden' : 'visible'"
+        />
       </button>
       }
     </div>
@@ -67,7 +76,7 @@
     } @else {
     <div class="sleep-text">
       <p>{{ data.sleepTime() }}</p>
-      <app-sleep-svg />
+      <img src="/sleep.svg" alt="Sleep icon" />
     </div>
     }
   </div>
