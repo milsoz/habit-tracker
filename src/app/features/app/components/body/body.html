@@ -1,10 +1,10 @@
-<div class="container">
+<form class="container" (submit)="$event.preventDefault()">
   <div class="water">
     <p>Water drank: {{ data.glassesFull() }}/8 glasses</p>
 
     <div class="card-water">
       @for (glass of glasses; track $index; let i = $index) {
-      <button (click)="onChangeGlassesFull(i + 1)">
+      <button (click)="onChangeGlassesFull(i + 1)" type="button">
         <img
           src="/glassFull.svg"
           alt="Full glass of water"
@@ -80,4 +80,4 @@
     </div>
     }
   </div>
-</div>
+</form>
