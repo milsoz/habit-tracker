@@ -1,18 +1,27 @@
 <form class="container" (submit)="$event.preventDefault()">
-  <div class="water">
-    <p>Water drank: {{ data.glassesFull() }}/8 glasses</p>
+  <div class="water" role="group" aria-labelledby="water-heading">
+    <p id="water-heading">Water drank: {{ data.glassesFull() }}/8 glasses</p>
 
-    <div class="card-water">
+    <div class="card-water" role="group" aria-labelledby="water-heading">
       @for (glass of glasses; track $index; let i = $index) {
-      <button (click)="onChangeGlassesFull(i + 1)" type="button">
+      <button
+        (click)="onChangeGlassesFull(i + 1)"
+        type="button"
+        [attr.aria-label]="
+          'Glass ' + (i + 1) + ' of 8' + (data.glassesFull() >= i + 1 ? ', filled' : ', empty')
+        "
+        [attr.aria-pressed]="data.glassesFull() >= i + 1"
+      >
         <img
           src="/glassFull.svg"
-          alt="Full glass of water"
+          alt=""
+          aria-hidden="true"
           [class]="data.glassesFull() >= i + 1 ? 'visible' : 'hidden'"
         />
         <img
           src="/glassEmpty.svg"
-          alt="Empty glass of water"
+          alt=""
+          aria-hidden="true"
           [class]="data.glassesFull() >= i + 1 ? 'hidden' : 'visible'"
         />
       </button>
@@ -20,14 +29,23 @@
     </div>
   </div>
   <div class="steps">
-    <div class="progress-bar" [style.--progress-value]="(data.steps() / 8000) * 100">
+    <div
+      class="progress-bar"
+      [style.--progress-value]="(data.steps() / 8000) * 100"
+      role="progressbar"
+      [attr.aria-valuenow]="data.steps()"
+      [attr.aria-valuemin]="0"
+      [attr.aria-valuemax]="8000"
+      [attr.aria-label]="'Steps progress: ' + data.steps() + ' out of 8000 steps'"
+    >
       <progress
         [value]="(data.steps() / 8000) * 100"
         min="0"
         max="100"
         style="visibility: hidden; height: 0; width: 0"
+        aria-hidden="true"
       ></progress>
-      <p>{{ ((data.steps() / 8000) * 100).toFixed(0) }}%</p>
+      <p aria-hidden="true">{{ ((data.steps() / 8000) * 100).toFixed(0) }}%</p>
     </div>
 
     <div class="input-div">
@@ -38,7 +56,12 @@
         id="steps"
         [value]="data.steps()"
         (change)="onChangeSteps($event.target.valueAsNumber)"
+        min="0"
+        max="100000"
+        step="1"
+        aria-describedby="steps-hint"
       />
+      <small id="steps-hint" class="sr-only">Enter a number of steps</small>
     </div>
   </div>
   <div class="exercise">

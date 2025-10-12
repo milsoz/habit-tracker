@@ -33,4 +33,9 @@ export class Mind {
   onChangeMoodRating(value: number) {
     this.data.setMoodRating(value);
   }
+
+  getMoodLabel(index: number): string {
+    const labels = ['Very sad', 'Sad', 'Neutral', 'Happy', 'Very happy'];
+    return labels[index] || 'Unknown mood';
+  }
 }

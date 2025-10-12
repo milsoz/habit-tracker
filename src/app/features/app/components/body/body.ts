@@ -4,6 +4,7 @@ import { MenuDataService } from '../../services/menu-data';
 @Component({
   selector: 'app-body',
   templateUrl: './body.html',
+  imports: [],
   styleUrl: './body.scss',
 })
 export class Body {
@@ -21,7 +22,11 @@ export class Body {
   }
 
   onChangeSteps(amount: number) {
-    this.data.setSteps(amount);
+    if (amount < 0) {
+      this.data.setSteps(amount * -1);
+    } else {
+      this.data.setSteps(amount);
+    }
   }
 
   onEnterSleepTIme(time: string) {

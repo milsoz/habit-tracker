@@ -49,7 +49,7 @@ section {
   gap: 3rem;
 }
 
-h2 {
+.section-label {
   font-weight: 500;
   font-size: g.$font-base;
   background-color: g.$accent-2;
@@ -60,7 +60,7 @@ h2 {
   border-radius: 6px;
 }
 
-h1 {
+h2 {
   font-size: clamp(g.$font-2xl, 10vw, g.$font-5xl);
   line-height: g.$line-5xl;
   text-align: center;

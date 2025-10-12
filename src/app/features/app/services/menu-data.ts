@@ -1,19 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-
-interface DailyData {
-  glassesFull: number;
-  steps: number;
-  sleepTime: string;
-  exerciseDescription: string;
-  moodRating: number;
-  restDescription: string;
-  dayDescription: string;
-  stressLevel: number;
-  goals: string[];
-  currentGoal: string;
-  practiceDescription: string;
-  newLearned: string;
-}
+import { DailyData } from '../models/IDailyData';
 
 @Injectable({
   providedIn: 'root',
@@ -103,7 +89,7 @@ export class MenuDataService {
         restDescription: '',
         dayDescription: '',
         stressLevel: 0,
-        goals: this.goals(),
+        goals: [],
         currentGoal: '',
         practiceDescription: '',
         newLearned: '',
@@ -120,7 +106,6 @@ export class MenuDataService {
     this.dayDescription.set(data.dayDescription);
     this.stressLevel.set(data.stressLevel);
 
-    this.goals.set(this.goals());
     this.currentGoal.set(data.currentGoal);
     this.practiceDescription.set(data.practiceDescription);
     this.newLearned.set(data.newLearned);

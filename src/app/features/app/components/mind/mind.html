@@ -1,13 +1,16 @@
 <form class="container" (submit)="$event.preventDefault()">
-  <div class="mood">
-    <p>Rate todays mood!</p>
+  <div class="mood" role="group" aria-labelledby="mood-heading">
+    <p id="mood-heading">Rate todays mood!</p>
 
-    <div class="card-mood">
+    <div class="card-mood" role="radiogroup" aria-labelledby="mood-heading">
       @for (rating of ratings; track $index; let i = $index) {
       <button
         class="{{ data.moodRating() === i ? 'active' : '' }}"
         (click)="onChangeMoodRating(i)"
         type="button"
+        role="radio"
+        [attr.aria-checked]="data.moodRating() === i"
+        [attr.aria-label]="getMoodLabel(i)"
       >
         {{ rating }}
       </button>
@@ -57,11 +60,16 @@
     </div>
     }
   </div>
-  <div class="stress">
-    <p>Select todays stress level:</p>
-    <div class="card-stress">
+  <div class="stress" role="group" aria-labelledby="stress-heading">
+    <p id="stress-heading">Select todays stress level:</p>
+    <div class="card-stress" role="group" aria-labelledby="stress-heading">
       @for (stress of stressLevels; track $index; let i = $index) {
-      <button (click)="onChangeStress(i + 1)" type="button">
+      <button
+        (click)="onChangeStress(i + 1)"
+        type="button"
+        [attr.aria-label]="'Stress level ' + (i + 1) + ' out of 10'"
+        [attr.aria-pressed]="data.stressLevel() >= i + 1"
+      >
         <app-stress-svg
           [stressLevelIndex]="i"
           [isActive]="data.stressLevel() >= i + 1"

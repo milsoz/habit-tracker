@@ -1,6 +1,6 @@
 <form class="container" (submit)="$event.preventDefault()">
-  <div class="goals">
-    <label for="goals">Add new goals:</label>
+  <div class="goals" role="group" aria-labelledby="goals-heading">
+    <label for="goals" id="goals-heading">Add new goals:</label>
 
     <input
       type="text"
@@ -8,7 +8,10 @@
       id="goals"
       #goalInput
       (change)="onEnterGoal(goalInput.value); goalInput.value = ''"
+      placeholder="Enter a new goal"
+      aria-describedby="goals-hint"
     />
+    <div id="goals-hint" class="sr-only">Press Enter or change focus to add the goal</div>
   </div>
   <div class="current-goal">
     <div class="card-current-goal">
@@ -23,7 +26,7 @@
         <option value="">--Please choose an option--</option>
 
         @for (goal of data.goals(); track $index; let i = $index) {
-        <option value="dog">{{ goal }}</option>
+        <option value="{{ goal }}">{{ goal }}</option>
         }
       </select>
     </div>

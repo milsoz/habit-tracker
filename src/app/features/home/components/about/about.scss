@@ -32,7 +32,7 @@ img {
   gap: 0.5rem;
 }
 
-h2 {
+.section-label {
   font-size: g.$font-base;
   background-color: g.$accent;
   display: inline;
@@ -40,6 +40,11 @@ h2 {
   padding: 0.2rem 0.5rem;
   font-weight: 500;
   border-radius: 6px;
+}
+
+h2 {
+  font-size: clamp(g.$font-2xl, 10vw, g.$font-5xl);
+  line-height: g.$line-5xl;
 }
 
 h1 {

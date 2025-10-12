@@ -1,10 +1,14 @@
 <section>
   <div class="menu">
     <div class="controls">
-      <div class="buttons">
+      <div class="buttons" role="tablist" aria-label="Habit tracking categories">
         <button
           class="tab-btn {{ data.selectedMenuIndex() === 1 ? 'active' : '' }}"
           (click)="data.setIndex(1)"
+          role="tab"
+          [attr.aria-selected]="data.selectedMenuIndex() === 1"
+          [attr.aria-controls]="'tabpanel-body'"
+          id="tab-body"
         >
           <span class="{{ data.selectedMenuIndex() === 1 ? ' highlight highlight-1' : '' }}"
             >Body</span
@@ -13,6 +17,10 @@
         <button
           class="tab-btn {{ data.selectedMenuIndex() === 2 ? 'active' : '' }}"
           (click)="data.setIndex(2)"
+          role="tab"
+          [attr.aria-selected]="data.selectedMenuIndex() === 2"
+          [attr.aria-controls]="'tabpanel-mind'"
+          id="tab-mind"
         >
           <span class="{{ data.selectedMenuIndex() === 2 ? 'highlight highlight-2' : '' }}"
             >Mind</span
@@ -21,6 +29,10 @@
         <button
           class="tab-btn {{ data.selectedMenuIndex() === 3 ? 'active' : '' }}"
           (click)="data.setIndex(3)"
+          role="tab"
+          [attr.aria-selected]="data.selectedMenuIndex() === 3"
+          [attr.aria-controls]="'tabpanel-goals'"
+          id="tab-goals"
         >
           <span class="{{ data.selectedMenuIndex() === 3 ? ' highlight highlight-3' : '' }}"
             >Goals</span
@@ -38,11 +50,17 @@
 
     <div class="tab">
       @if(data.selectedMenuIndex() === 1) {
-      <app-body />
+      <div role="tabpanel" id="tabpanel-body" [attr.aria-labelledby]="'tab-body'">
+        <app-body />
+      </div>
       } @if(data.selectedMenuIndex() === 2) {
-      <app-mind />
+      <div role="tabpanel" id="tabpanel-mind" [attr.aria-labelledby]="'tab-mind'">
+        <app-mind />
+      </div>
       } @if(data.selectedMenuIndex() === 3) {
-      <app-goals />
+      <div role="tabpanel" id="tabpanel-goals" [attr.aria-labelledby]="'tab-goals'">
+        <app-goals />
+      </div>
       }
     </div>
   </div>
