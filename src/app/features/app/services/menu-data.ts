@@ -1,9 +1,10 @@
 import { Injectable, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { DailyData } from '../models/IDailyData';
 import { isPlatformBrowser } from '@angular/common';
+import { AppPage } from '../app-page/app-page';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: AppPage,
 })
 export class MenuDataService {
   dateValue: Date = new Date();
