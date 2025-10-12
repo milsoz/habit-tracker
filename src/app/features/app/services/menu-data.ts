@@ -1,5 +1,6 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { DailyData } from '../models/IDailyData';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +27,16 @@ export class MenuDataService {
 
   dailyData: Record<string, DailyData> = {};
 
-  private getDateKey(date: Date = this.dateValue): string {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      const savedData = localStorage.getItem('dailyData');
+      if (savedData) {
+        this.dailyData = JSON.parse(savedData);
+      }
+    }
+  }
+
+  getDateKey(date: Date = this.dateValue): string {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -49,6 +59,7 @@ export class MenuDataService {
       practiceDescription: this.practiceDescription(),
       newLearned: this.newLearned(),
     };
+    localStorage.setItem('dailyData', JSON.stringify(this.dailyData));
   };
 
   setSignal = <T>(signalRef: { set: (v: T) => void }, value: T) => {

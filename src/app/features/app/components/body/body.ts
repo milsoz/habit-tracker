@@ -33,5 +33,5 @@ export class Body {
     this.data.setSleepTime(time);
   }
 
-  glasses = Array(8).fill(0);
+  glasses = [0, 1, 2, 3, 4, 5, 6, 7];
 }

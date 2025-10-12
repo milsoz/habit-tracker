@@ -18,4 +18,8 @@ import { MenuDataService } from '../../services/menu-data';
 })
 export class Menu {
   constructor(public data: MenuDataService) {}
+
+  ngOnInit() {
+    this.data.loadDataForDate(new Date());
+  }
 }
