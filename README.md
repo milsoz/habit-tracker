@@ -40,7 +40,7 @@ Self improvement related in the goals
 
 The app has a functioning date selector,
 
-Input data is saved to the selected date. Saved only in memory, not local storage nor a DB
+Input data is saved to localStorage.
 
 # Running the app
 
