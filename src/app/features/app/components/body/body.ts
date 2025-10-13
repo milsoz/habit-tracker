@@ -13,24 +13,24 @@ export class Body {
   exerciseInputValue: string = '';
 
   onEnterExercise(value: string) {
-    this.data.setExerciseDescription(value);
+    this.data.exerciseDescription.set(value);
     this.exerciseInputValue = '';
   }
 
   onChangeGlassesFull(amount: number) {
-    this.data.setGlassesFull(amount);
+    this.data.glassesFull.set(amount);
   }
 
   onChangeSteps(amount: number) {
     if (amount < 0) {
-      this.data.setSteps(amount * -1);
+      this.data.steps.set(amount * -1);
     } else {
-      this.data.setSteps(amount);
+      this.data.steps.set(amount);
     }
   }
 
-  onEnterSleepTIme(time: string) {
-    this.data.setSleepTime(time);
+  onEnterSleepTime(time: string) {
+    this.data.sleepTime.set(time);
   }
 
   glasses = [0, 1, 2, 3, 4, 5, 6, 7];

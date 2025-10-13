@@ -14,21 +14,21 @@ export class Goals {
   constructor(public data: MenuDataService) {}
 
   onEnterGoal(goal: string) {
-    this.data.setGoals(goal);
+    this.data.goals.set([...this.data.goals(), goal]);
   }
 
   onEnterPractice(value: string) {
-    this.data.setPracticeDescription(value);
+    this.data.practiceDescription.set(value);
     this.practiceInputValue = '';
   }
 
   onEnterLearned(value: string) {
-    this.data.setNewLearned(value);
+    this.data.newLearned.set(value);
     this.newLearnedInputValue = '';
   }
 
   onGoalChange(e: Event) {
     const target = e.target as HTMLSelectElement;
-    this.data.setCurrentGoal(target.value);
+    this.data.currentGoal.set(target.value);
   }
 }

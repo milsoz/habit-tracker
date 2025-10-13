@@ -17,21 +17,21 @@ export class Mind {
   constructor(public data: MenuDataService) {}
 
   onEnterRest(value: string) {
-    this.data.setRestDescription(value);
+    this.data.restDescription.set(value);
     this.restDescriptionInputValue = '';
   }
 
   onEnterDay(value: string) {
-    this.data.setDayDescription(value);
+    this.data.dayDescription.set(value);
     this.dayDescriptionInputValue = '';
   }
 
   onChangeStress(value: number) {
-    this.data.setStressLevel(value);
+    this.data.stressLevel.set(value);
   }
 
   onChangeMoodRating(value: number) {
-    this.data.setMoodRating(value);
+    this.data.moodRating.set(value);
   }
 
   getMoodLabel(index: number): string {

@@ -1,6 +1,5 @@
-import { Injectable, signal, Inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, signal, effect } from '@angular/core';
 import { DailyData } from '../models/IDailyData';
-import { isPlatformBrowser } from '@angular/common';
 import { AppPage } from '../app-page/app-page';
 
 @Injectable({
@@ -28,13 +27,10 @@ export class MenuDataService {
 
   dailyData: Record<string, DailyData> = {};
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    if (isPlatformBrowser(this.platformId)) {
-      const savedData = localStorage.getItem('dailyData');
-      if (savedData) {
-        this.dailyData = JSON.parse(savedData);
-      }
-    }
+  constructor() {
+    effect(() => {
+      this.saveDataForDate();
+    });
   }
 
   getDateKey(date: Date = this.dateValue()): string {
@@ -60,31 +56,7 @@ export class MenuDataService {
       practiceDescription: this.practiceDescription(),
       newLearned: this.newLearned(),
     };
-    localStorage.setItem('dailyData', JSON.stringify(this.dailyData));
   };
-
-  setSignal = <T>(signalRef: { set: (v: T) => void }, value: T) => {
-    signalRef.set(value);
-    this.saveDataForDate();
-  };
-
-  setGoals = (newGoal: string) => {
-    this.goals.update((current) => [...current, newGoal]);
-    this.saveDataForDate();
-  };
-
-  setGlassesFull = (amount: number) => this.setSignal(this.glassesFull, amount);
-  setSteps = (amount: number) => this.setSignal(this.steps, amount);
-  setSleepTime = (time: string) => this.setSignal(this.sleepTime, time);
-  setExerciseDescription = (desc: string) => this.setSignal(this.exerciseDescription, desc);
-  setMoodRating = (rating: number) => this.setSignal(this.moodRating, rating);
-  setRestDescription = (desc: string) => this.setSignal(this.restDescription, desc);
-  setDayDescription = (desc: string) => this.setSignal(this.dayDescription, desc);
-  setStressLevel = (level: number) => this.setSignal(this.stressLevel, level);
-  setCurrentGoal = (goal: string) => this.setSignal(this.currentGoal, goal);
-  setPracticeDescription = (practice: string) => this.setSignal(this.practiceDescription, practice);
-  setNewLearned = (learned: string) => this.setSignal(this.newLearned, learned);
-  setIndex = (i: number) => this.setSignal(this.selectedMenuIndex, i);
 
   loadDataForDate = (date: Date) => {
     this.dateValue.set(date);
