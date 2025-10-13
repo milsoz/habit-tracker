@@ -40,7 +40,8 @@
         </button>
       </div>
       <p-datepicker
-        [(ngModel)]="data.dateValue"
+        [ngModel]="data.dateValue()"
+        (ngModelChange)="data.dateValue.set($event)"
         (onSelect)="data.loadDataForDate($event)"
         [showIcon]="true"
         inputId="buttondisplay"

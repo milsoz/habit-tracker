@@ -7,7 +7,7 @@ import { AppPage } from '../app-page/app-page';
   providedIn: AppPage,
 })
 export class MenuDataService {
-  dateValue: Date = new Date();
+  dateValue = signal(new Date());
 
   selectedMenuIndex = signal(1);
 
@@ -37,7 +37,7 @@ export class MenuDataService {
     }
   }
 
-  getDateKey(date: Date = this.dateValue): string {
+  getDateKey(date: Date = this.dateValue()): string {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -45,7 +45,7 @@ export class MenuDataService {
   }
 
   private saveDataForDate = () => {
-    const key = this.getDateKey(this.dateValue);
+    const key = this.getDateKey(this.dateValue());
     this.dailyData[key] = {
       glassesFull: this.glassesFull(),
       steps: this.steps(),
@@ -87,7 +87,7 @@ export class MenuDataService {
   setIndex = (i: number) => this.setSignal(this.selectedMenuIndex, i);
 
   loadDataForDate = (date: Date) => {
-    this.dateValue = date;
+    this.dateValue.set(date);
     const key = this.getDateKey(date);
     let data = this.dailyData[key];
 
