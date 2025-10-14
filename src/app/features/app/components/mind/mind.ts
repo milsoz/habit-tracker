@@ -9,8 +9,6 @@ import { MenuDataService } from '../../services/menu-data';
   styleUrl: './mind.scss',
 })
 export class Mind {
-  dayDescriptionInputValue: string = '';
-  restDescriptionInputValue: string = '';
   stressLevels = Array(10).fill(0);
   ratings = ['😭', '🙁', '😐', '🙂', '😁'];
 
@@ -18,12 +16,10 @@ export class Mind {
 
   onEnterRest(value: string) {
     this.data.restDescription.set(value);
-    this.restDescriptionInputValue = '';
   }
 
   onEnterDay(value: string) {
     this.data.dayDescription.set(value);
-    this.dayDescriptionInputValue = '';
   }
 
   onChangeStress(value: number) {

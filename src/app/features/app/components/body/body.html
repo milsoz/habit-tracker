@@ -71,7 +71,7 @@
     <textarea
       #exerciseInput
       id="exerciseDescription"
-      [value]="exerciseInputValue"
+      [value]="data.exerciseDescription()"
       (keydown.enter)="onEnterExercise(exerciseInput.value)"
       rows="5"
       cols="30"

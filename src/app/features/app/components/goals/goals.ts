@@ -8,9 +8,6 @@ import { MenuDataService } from '../../services/menu-data';
   styleUrl: './goals.scss',
 })
 export class Goals {
-  practiceInputValue: string = '';
-  newLearnedInputValue: string = '';
-
   constructor(public data: MenuDataService) {}
 
   onEnterGoal(goal: string) {
@@ -19,12 +16,10 @@ export class Goals {
 
   onEnterPractice(value: string) {
     this.data.practiceDescription.set(value);
-    this.practiceInputValue = '';
   }
 
   onEnterLearned(value: string) {
     this.data.newLearned.set(value);
-    this.newLearnedInputValue = '';
   }
 
   onGoalChange(e: Event) {

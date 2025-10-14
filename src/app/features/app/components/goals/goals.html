@@ -38,7 +38,7 @@
     <textarea
       #practiceDescription
       id="practiceDescription"
-      [value]="practiceInputValue"
+      [value]="data.practiceDescription()"
       (keydown.enter)="onEnterPractice(practiceDescription.value)"
       rows="6"
       cols="30"
@@ -60,7 +60,7 @@
     <textarea
       #newLearned
       id="newLearned"
-      [value]="newLearnedInputValue"
+      [value]="data.newLearned()"
       (keydown.enter)="onEnterLearned(newLearned.value)"
       rows="6"
       cols="30"

@@ -24,7 +24,7 @@
     <textarea
       #restDescription
       id="restDescription"
-      [value]="restDescriptionInputValue"
+      [value]="data.restDescription()"
       (keydown.enter)="onEnterRest(restDescription.value)"
       rows="6"
       cols="30"
@@ -46,7 +46,7 @@
     <textarea
       #dayDescription
       id="dayDescription"
-      [value]="dayDescriptionInputValue"
+      [value]="data.dayDescription()"
       (keydown.enter)="onEnterDay(dayDescription.value)"
       rows="6"
       cols="30"

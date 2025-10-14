@@ -10,11 +10,8 @@ import { MenuDataService } from '../../services/menu-data';
 export class Body {
   constructor(public data: MenuDataService) {}
 
-  exerciseInputValue: string = '';
-
   onEnterExercise(value: string) {
     this.data.exerciseDescription.set(value);
-    this.exerciseInputValue = '';
   }
 
   onChangeGlassesFull(amount: number) {
